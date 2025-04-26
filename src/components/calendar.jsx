@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import { App } from "@capacitor/app";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonLabel,
+  IonSpinner,
+} from "@ionic/react";
 
 const API_KEY = "AIzaSyDLO-xevjfz6ORYRcnvVTT7NW04xF7b11M";
 const CALENDAR_ID =
   "4f673ffcbbf337a3185b6a3c17005b392c53210b79cb8701ebde5822b9a9b870@group.calendar.google.com";
-const localizer = momentLocalizer(moment);
 
 const PublicCalendar = () => {
   const [events, setEvents] = useState([]);
-  const [view, setView] = useState("month");
-  const [date, setDate] = useState(new Date());
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadGapiAndFetchEvents = () => {
@@ -46,16 +59,19 @@ const PublicCalendar = () => {
             start: new Date(event.start.dateTime || event.start.date),
             end: new Date(event.end.dateTime || event.end.date),
             url: event.htmlLink,
+            description: event.description || "",
+            location: event.location || "",
           }));
 
           setEvents(formatted);
         } catch (error) {
           console.error("Error loading calendar events", error);
+        } finally {
+          setLoading(false);
         }
       });
     };
 
-    // wait a moment for gapi to be available
     const interval = setInterval(() => {
       if (window.gapi) {
         clearInterval(interval);
@@ -66,27 +82,80 @@ const PublicCalendar = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSelectEvent = (event) => {
-    window.open(event.url, "_blank");
+  const handleSelectEvent = async (info) => {
+    try {
+      await App.openUrl({ url: info.event.extendedProps.url });
+    } catch (error) {
+      console.error("Failed to open event URL", error);
+    }
   };
 
+  // Get next 3 upcoming events
+  const upcomingEvents = events
+    .filter((e) => new Date(e.start) >= new Date())
+    .sort((a, b) => new Date(a.start) - new Date(b.start))
+    .slice(0, 3);
+
   return (
-    <div style={{ height: 600 }}>
-      <h2>Upcoming Events</h2>
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        view={view}
-        onView={setView}
-        views={["month", "week", "day"]}
-        date={date}
-        onNavigate={setDate}
-        onSelectEvent={handleSelectEvent}
-        style={{ height: 500 }}
-      />
-    </div>
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Idle Sundays Calendar</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent className="ion-padding">
+        {loading ? (
+          <div style={{ textAlign: "center", padding: "2rem" }}>
+            <IonSpinner name="dots" />
+          </div>
+        ) : (
+          <>
+            <div style={{ height: "70vh", marginBottom: "2rem" }}>
+              <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin]}
+                initialView="dayGridMonth"
+                events={events}
+                eventClick={handleSelectEvent}
+                headerToolbar={{
+                  start: "prev,next today",
+                  center: "title",
+                  end: "dayGridMonth,dayGridWeek,dayGridDay",
+                }}
+                height="100%"
+              />
+            </div>
+
+            <IonCard>
+              <IonCardHeader>
+                <IonCardTitle>Upcoming Events</IonCardTitle>
+              </IonCardHeader>
+              {upcomingEvents.map((event) => (
+                <IonCardContent key={event.id}>
+                  <IonLabel>
+                    <h2>{event.title}</h2>
+                    <p>
+                      {new Date(event.start).toLocaleDateString()} at{" "}
+                      {new Date(event.start).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                    {event.location && <p>📍 {event.location}</p>}
+                    {event.description && <p>{event.description}</p>}
+                  </IonLabel>
+                </IonCardContent>
+              ))}
+              {upcomingEvents.length === 0 && (
+                <IonCardContent>
+                  <IonLabel>No upcoming events.</IonLabel>
+                </IonCardContent>
+              )}
+            </IonCard>
+          </>
+        )}
+      </IonContent>
+    </IonPage>
   );
 };
 
