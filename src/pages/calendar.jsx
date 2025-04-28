@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { App } from "@capacitor/app";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
 import {
   IonPage,
   IonHeader,
@@ -17,77 +16,16 @@ import {
   IonLabel,
   IonSpinner,
 } from "@ionic/react";
-
-const API_KEY = "AIzaSyDLO-xevjfz6ORYRcnvVTT7NW04xF7b11M";
-const CALENDAR_ID =
-  "4f673ffcbbf337a3185b6a3c17005b392c53210b79cb8701ebde5822b9a9b870@group.calendar.google.com";
+import { useCalendarEvents } from "../utils/useCalendarEvents"; // Import the useCalendarEvents hook
 
 const PublicCalendar = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { events, loading } = useCalendarEvents();
+  const isMobile = window.innerWidth < 600;
+  const history = useHistory();
 
-  useEffect(() => {
-    const loadGapiAndFetchEvents = () => {
-      if (!window.gapi) {
-        console.error("GAPI not loaded");
-        return;
-      }
-
-      window.gapi.load("client", async () => {
-        try {
-          await window.gapi.client.init({
-            apiKey: API_KEY,
-          });
-
-          const response = await window.gapi.client.request({
-            path: `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
-              CALENDAR_ID
-            )}/events`,
-            params: {
-              timeMin: new Date().toISOString(),
-              showDeleted: false,
-              singleEvents: true,
-              orderBy: "startTime",
-              maxResults: 20,
-            },
-          });
-
-          const items = response.result.items || [];
-          const formatted = items.map((event) => ({
-            id: event.id,
-            title: event.summary,
-            start: new Date(event.start.dateTime || event.start.date),
-            end: new Date(event.end.dateTime || event.end.date),
-            url: event.htmlLink,
-            description: event.description || "",
-            location: event.location || "",
-          }));
-
-          setEvents(formatted);
-        } catch (error) {
-          console.error("Error loading calendar events", error);
-        } finally {
-          setLoading(false);
-        }
-      });
-    };
-
-    const interval = setInterval(() => {
-      if (window.gapi) {
-        clearInterval(interval);
-        loadGapiAndFetchEvents();
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleSelectEvent = async (info) => {
-    try {
-      await App.openUrl({ url: info.event.extendedProps.url });
-    } catch (error) {
-      console.error("Failed to open event URL", error);
-    }
+  const handleSelectEvent = (info) => {
+    const eventId = info.event.id;
+    history.push(`/event/${eventId}`);
   };
 
   // Get next 3 upcoming events
@@ -118,9 +56,9 @@ const PublicCalendar = () => {
                 events={events}
                 eventClick={handleSelectEvent}
                 headerToolbar={{
-                  start: "prev,next today",
+                  start: isMobile ? "prev today next" : "prev,next today",
                   center: "title",
-                  end: "dayGridMonth,dayGridWeek,dayGridDay",
+                  end: isMobile ? "" : "dayGridMonth,dayGridWeek,dayGridDay",
                 }}
                 height="100%"
               />

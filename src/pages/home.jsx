@@ -1,7 +1,5 @@
 import {
-  IonButton,
   IonContent,
-  IonDatetime,
   IonHeader,
   IonPage,
   IonTitle,

@@ -9,8 +9,8 @@
     "@fullcalendar/daygrid": "^6.1.8",
     "@fullcalendar/interaction": "^6.1.8",
     "@fullcalendar/react": "^6.1.17",
-    "@ionic/react": "^6.7.5",
-    "@ionic/react-router": "^5.2.0",
+    "@ionic/react": "^8.5.5",
+    "@ionic/react-router": "^8.5.5",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -22,7 +22,7 @@
     "history": "^5.3.0",
     "react-big-calendar": "^1.18.0",
     "react-native": "^0.79.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -32,7 +32,8 @@
     "sync": "aws s3 sync ./build s3://idlesundays.com/",
     "invalidate": "aws cloudfront create-invalidation --distribution-id E3I0XZQFYFEILP --paths /*",
     "test": "react-scripts test",
-    "clean": "npm cache clean --force",
+    "clean": "del /f /q package-lock.json && rmdir /s /q node_modules",
+    "reinstall": "npm cache clean --force && npm install",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
