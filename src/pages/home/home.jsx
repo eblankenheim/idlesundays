@@ -5,7 +5,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import poster001 from "../media/images/poster001.png";
+import poster001 from "../../media/images/poster001.png";
 
 const Home = () => {
   return (

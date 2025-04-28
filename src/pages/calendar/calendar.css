@@ -1,0 +1,27 @@
+.calendar-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: .5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Highlight days that have events */
+  .react-calendar__tile.event-day {
+    background: rgb(30, 255, 0);
+    color: black;
+    border-radius: 80%;
+  }
+  
+  /* Highlight selected day */
+  .react-calendar__tile--active {
+    background: rgb(37, 150, 255);
+    color: white !important;
+    border-radius: 80%;
+  }
+  
+  /* Improve mobile spacing */
+  .react-calendar {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  

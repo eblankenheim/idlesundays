@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "@ionic/react/css/core.css";
+import { setupIonicReact } from "@ionic/react";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Route, Redirect } from "react-router-dom";
@@ -15,24 +15,20 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
-import PublicCalendar from "./pages/calendar";
-import Home from "./pages/home";
-import EventDetails from "./pages/eventDetails";
+import CalendarPage from "./pages/calendar/calendarPage";
+import Home from "./pages/home/home";
+import EventDetails from "./pages/eventDetails/eventDetails";
+
+setupIonicReact();
 
 function App() {
-  const [events, setEvents] = useState([]);
-
   return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          {/* Use the element prop to render components */}
-          <Route path="/" element={<Home />} />
-          <Route path="/event/:id" element={<EventDetails events={events} />} />
-          <Route
-            path="/calendar"
-            element={<PublicCalendar events={events} setEvents={setEvents} />}
-          />
+          <Route path="/" component={Home} exact />
+          <Route path="/calendar" component={CalendarPage} exact />
+          <Route path="/event/:id" component={EventDetails} exact />
           <Redirect to="/" />
         </IonRouterOutlet>
       </IonReactRouter>
