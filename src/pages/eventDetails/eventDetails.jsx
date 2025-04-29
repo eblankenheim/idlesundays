@@ -88,44 +88,70 @@ END:VCALENDAR
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Event Details</IonTitle>
+          <IonTitle>{event.title}</IonTitle> {/* ✅ Title moved to header */}
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <IonImg
-          src={
-            event.imageUrl || "https://source.unsplash.com/random/800x400?event"
-          }
-          alt={event.title}
-          style={{ borderRadius: "12px", marginBottom: "1rem" }}
-        />
 
+      <IonContent className="ion-padding">
+        {/* Event banner image */}
+        {event.imageUrl ? (
+          <IonImg
+            src={
+              event.imageUrl ||
+              "https://source.unsplash.com/random/800x400?event"
+            }
+            alt={event.title}
+            style={{ borderRadius: "12px", marginBottom: "1rem" }}
+          />
+        ) : (
+          <></>
+        )}
+
+        {/* ✅ New Event Details Section */}
         <IonCard>
           <IonCardHeader>
-            <IonCardTitle style={{ fontSize: "1.5rem" }}>
-              {event.title}
+            <IonCardTitle style={{ fontSize: "1.3rem" }}>
+              Event Details
             </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
+            {event.locationImageUrl && (
+              <IonImg
+                src={event.locationImageUrl}
+                alt="Location"
+                style={{ borderRadius: "10px", marginBottom: "1rem" }}
+              />
+            )}
             <IonLabel>
-              <h2>
-                {new Date(event.start).toLocaleDateString()} at{" "}
+              <p>
+                <strong>Date:</strong> 📅{" "}
+                {new Date(event.start).toLocaleDateString()}
+              </p>
+              <p>
+                <strong>Time:</strong> 🕒{" "}
                 {new Date(event.start).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
                 })}
-              </h2>
-              {event.location && <p>📍 {event.location}</p>}
-              {event.description && (
-                <p style={{ marginTop: "1rem" }}>{event.description}</p>
-              )}
+              </p>
+              <p>
+                <strong>Location:</strong> 📍 {event.location}
+              </p>
             </IonLabel>
           </IonCardContent>
         </IonCard>
 
         <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
-          ➕ Add to Calendar
+          + Add to Calendar
         </IonButton>
+
+        {/* Description section */}
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>{event.title}</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>📋 {event.description}</IonCardContent>
+        </IonCard>
 
         <IonButton
           expand="block"
@@ -134,11 +160,13 @@ END:VCALENDAR
         >
           ← Back to Calendar
         </IonButton>
-        {event.famousBirthdays && event.famousBirthdays.length > 0 && (
+
+        {/* Famous Birthdays */}
+        {event.famousBirthdays?.length > 0 && (
           <IonCard style={{ marginTop: "1rem" }}>
             <IonCardHeader>
               <IonCardTitle style={{ fontSize: "1.2rem" }}>
-                🎉 Famous Birthdays
+                Famous Birthdays
               </IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
@@ -146,7 +174,9 @@ END:VCALENDAR
                 {event.famousBirthdays.map((person, index) => (
                   <li key={index} style={{ marginBottom: "0.5rem" }}>
                     <IonLabel>
-                      {person.name} —{" "}
+                      🎉 {person.name}
+                      <br></br>
+                      {" - "}
                       {person.dead
                         ? `would have turned ${person.age}`
                         : `${person.age} years old`}

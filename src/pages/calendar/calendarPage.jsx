@@ -95,15 +95,15 @@ const CalendarPage = () => {
               </IonCardHeader>
               <IonCardContent>
                 <IonLabel>
+                  <p>📅 {new Date(event.start).toLocaleDateString()}</p>
                   <p>
-                    {new Date(event.start).toLocaleDateString()}{" "}
+                    🕒{" "}
                     {new Date(event.start).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
                   </p>
-                  <p>📍 {event.location}</p>
-                  <p>{event.description}</p>
+                  <p>📍 {event.location.split(",")[0]}</p>
                 </IonLabel>
                 <IonButton
                   expand="block"

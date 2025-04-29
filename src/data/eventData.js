@@ -1,5 +1,6 @@
 import event1Img from "../media/images/will_faded.png";
 import event2Img from "../media/images/neela_faded.png";
+import location1Img from "../media/images/collins_lot.PNG";
 
 export const events = [
   {
@@ -20,9 +21,9 @@ export const events = [
         dead: true,
       },
     ],
-    location: "Collins & Cross Parking Lot, Oconomowoc, WI",
+    location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
-    imageUrl: event1Img,
+    locationImageUrl: location1Img,
   },
   {
     id: "2",
@@ -46,8 +47,8 @@ export const events = [
         dead: true,
       },
     ],
-    location: "Collins & Cross Parking Lot, Oconomowoc, WI",
+    location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
-    imageUrl: event2Img,
+    locationImageUrl: location1Img,
   },
 ];
