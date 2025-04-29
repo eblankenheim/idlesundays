@@ -40,7 +40,13 @@ ion-card-header,
 ion-card-content,
 card-content,
 ion-label {
+  background: black !important;
   color: var(--text-color) !important;
+}
+
+ion-card {
+  margin: none !important;
+  border-radius: 20px;
 }
 
 /* Ensure IonTitle text is white */

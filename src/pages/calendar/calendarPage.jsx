@@ -17,6 +17,7 @@ import {
   IonList,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
+import logo from "../../media/images/logo_640.png";
 import "react-calendar/dist/Calendar.css";
 import "./calendar.css"; // we'll create this for custom styling
 
@@ -63,9 +64,9 @@ const CalendarPage = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <h2>Idle Sundays Calendar</h2>
-          </IonTitle>
+          <IonToolbar className="toolbar-custom" align="center">
+            <img src={logo} alt="Idle Sundays Logo" className="logo" />
+          </IonToolbar>
         </IonToolbar>
       </IonHeader>
       <IonContent>
