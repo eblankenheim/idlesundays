@@ -134,6 +134,29 @@ END:VCALENDAR
         >
           ← Back to Calendar
         </IonButton>
+        {event.famousBirthdays && event.famousBirthdays.length > 0 && (
+          <IonCard style={{ marginTop: "1rem" }}>
+            <IonCardHeader>
+              <IonCardTitle style={{ fontSize: "1.2rem" }}>
+                🎉 Famous Birthdays
+              </IonCardTitle>
+            </IonCardHeader>
+            <IonCardContent>
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {event.famousBirthdays.map((person, index) => (
+                  <li key={index} style={{ marginBottom: "0.5rem" }}>
+                    <IonLabel>
+                      {person.name} —{" "}
+                      {person.dead
+                        ? `would have turned ${person.age}`
+                        : `${person.age} years old`}
+                    </IonLabel>
+                  </li>
+                ))}
+              </ul>
+            </IonCardContent>
+          </IonCard>
+        )}
       </IonContent>
     </IonPage>
   );

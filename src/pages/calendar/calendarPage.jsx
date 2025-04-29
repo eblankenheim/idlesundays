@@ -63,7 +63,9 @@ const CalendarPage = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Idle Sundays Calendar</IonTitle>
+          <IonTitle>
+            <h2>Idle Sundays Calendar</h2>
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -82,7 +84,7 @@ const CalendarPage = () => {
         </div>
         <IonToolbar>
           <IonTitle style={{ marginbottom: "1.5rem" }}>
-            Upcoming Events
+            <h3>Upcoming Events</h3>
           </IonTitle>
         </IonToolbar>
         <IonList>

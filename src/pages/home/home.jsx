@@ -12,7 +12,7 @@ const Home = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>My Page</IonTitle>
+          <IonTitle>Idle Sundays</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

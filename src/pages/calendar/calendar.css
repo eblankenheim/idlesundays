@@ -1,27 +1,65 @@
+/* Calendar container background and text */
 .calendar-container {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: .5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Highlight days that have events */
-  .react-calendar__tile.event-day {
-    background: rgb(30, 255, 0);
-    color: black;
-    border-radius: 80%;
-  }
-  
-  /* Highlight selected day */
-  .react-calendar__tile--active {
-    background: rgb(37, 150, 255);
-    color: white !important;
-    border-radius: 80%;
-  }
-  
-  /* Improve mobile spacing */
-  .react-calendar {
-    width: 100%;
-    font-size: 1.1rem;
-  }
-  
+  background: #000000; /* Dark background */
+  color: white; /* White text */
+  border-radius: 20px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide the previous and next navigation buttons */
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none !important; /* Hide the navigation buttons */
+}
+
+/* Navigation buttons (prev/next) */
+.react-calendar__navigation button {
+  color: white !important; /* White text for the buttons */
+  background: transparent; /* No background color */
+  border: none; /* Remove button border */
+  font-size: 1.5rem; /* Larger button text size */
+  display: flex; /* Use flexbox to align the icon */
+  justify-content: center; /* Center align the icon */
+  align-items: center; /* Center align the icon */
+}
+
+/* Navigation button hover state */
+.react-calendar__navigation button:hover {
+  color: #000000 !important; /* Highlight color on hover */
+}
+
+/* Highlight days with events */
+.react-calendar__tile.event-day {
+  background: rgb(30, 255, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 20%;
+}
+
+/* Highlight selected day */
+.react-calendar__tile--active {
+  background: rgb(37, 150, 255); /* Light blue background */
+  color: white !important; /* White text for the selected day */
+  border-radius: 20%; /* Rounded corners */
+}
+
+/* Highlight current day */
+.react-calendar__tile--now {
+  background: rgb(255, 165, 0) !important; /* Orange background for today */
+  color: white(0, 123, 255) !important; /* Black text for today's date */
+  border-radius: 20%; /* Rounded corners */
+}
+
+/* Default tile styles */
+.react-calendar__tile {
+  background: #000000; /* Dark background for all days */
+  color: white; /* White text for all days */
+}
+
+/* General calendar styles */
+.react-calendar {
+  background: #000000;
+  color: white;
+  width: 100%;
+  font-size: 1.1rem;
+}

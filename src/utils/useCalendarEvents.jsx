@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import eventsData from "../data/eventData.json"; // Assuming events.json is in the same directory
+import { events } from "../data/eventData"; // Notice: events is now a named import
 
 export const useCalendarEvents = () => {
-  const [events, setEvents] = useState([]);
+  const [eventList, setEventList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading from the JSON file
+    // Simulate loading from the JS file
     setTimeout(() => {
-      setEvents(eventsData);
+      setEventList(events); // Use the imported events array
       setLoading(false);
     }, 1000); // Simulating a delay for loading
   }, []);
 
-  return { events, loading };
+  return { events: eventList, loading };
 };
