@@ -26,12 +26,13 @@
 
 /* Navigation button hover state */
 .react-calendar__navigation button:hover {
-  color: #000000 !important; /* Highlight color on hover */
+  color: white !important; /* Highlight color on hover */
+  background: black !important;
 }
 
 /* Highlight days with events */
 .react-calendar__tile.event-day {
-  background: rgb(30, 255, 0);
+  background: rgb(21, 177, 0);
   color: rgb(255, 255, 255);
   border-radius: 20%;
 }
@@ -62,4 +63,13 @@
   color: white;
   width: 100%;
   font-size: 1.1rem;
+  border: none;
+}
+
+.react-calendar__year-view__months__month.event-day {
+  background: black;
+}
+
+.react-calendar__tile--now.react-calendar__year-view__months__month {
+  background: #000000 !important;
 }
