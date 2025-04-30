@@ -76,3 +76,9 @@
   font-size: 1.5rem;
   font-family: "Arial Black", sans-serif;
 }
+.hero-car.bottom {
+  display: block;
+  margin: 2rem auto;
+  max-width: 80%;
+  height: auto;
+}

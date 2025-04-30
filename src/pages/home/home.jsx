@@ -1,4 +1,11 @@
-import { IonContent, IonHeader, IonPage, IonToolbar } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonToolbar,
+  IonRefresher,
+  IonRefresherContent,
+} from "@ionic/react";
 import { motion } from "framer-motion";
 import { useIonRouter } from "@ionic/react";
 import "./home.css";
@@ -6,9 +13,16 @@ import "./home.css";
 import logo from "../../media/images/logo_640.png";
 import neela from "../../media/images/neela_faded.png";
 import will from "../../media/images/will_faded.png";
+// import nubboi from "../../media/images/nubboi_faded.png";
 
 const Home = () => {
   const router = useIonRouter();
+
+  const handleRefresh = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); // Delay just to show refresh UI
+  };
 
   return (
     <IonPage>
@@ -19,6 +33,10 @@ const Home = () => {
       </IonHeader>
 
       <IonContent fullscreen className="home-content">
+        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+          <IonRefresherContent />
+        </IonRefresher>
+
         <section className="hero-section">
           <motion.img
             src={neela}
@@ -55,6 +73,14 @@ const Home = () => {
             <a onClick={() => router.push("/calendar", "forward")}>Calendar</a>
           </p>
         </motion.div>
+        <motion.img
+          // src={nubboi}
+          alt="Third Car"
+          className="hero-car bottom"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        />
       </IonContent>
     </IonPage>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
+import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import {
   IonPage,
@@ -15,6 +16,8 @@ import {
   IonButton,
   IonSpinner,
   IonList,
+  IonRefresher,
+  IonRefresherContent,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import logo from "../../media/images/logo_640.png";
@@ -60,6 +63,12 @@ const CalendarPage = () => {
     .sort((a, b) => new Date(a.start) - new Date(b.start))
     .slice(0, 2);
 
+  const handleRefresh = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); // Delay just to show refresh UI
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -70,7 +79,15 @@ const CalendarPage = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <div className="calendar-container">
+        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+          <IonRefresherContent />
+        </IonRefresher>
+        <motion.div
+          className="calendar-container"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <Calendar
             onChange={handleDateClick}
             value={selectedDate}
@@ -82,40 +99,54 @@ const CalendarPage = () => {
               return isEventDate ? "event-day" : null;
             }}
           />
-        </div>
-        <IonToolbar>
-          <IonTitle style={{ marginbottom: "1.5rem" }}>
-            <h3>Upcoming Events</h3>
-          </IonTitle>
-        </IonToolbar>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <IonToolbar>
+            <IonTitle align="center">
+              <h3>Upcoming Events</h3>
+            </IonTitle>
+          </IonToolbar>
+        </motion.div>
         <IonList>
-          {upcomingEvents.map((event) => (
-            <IonCard key={event.id}>
-              <IonCardHeader>
-                <IonCardTitle>{event.title}</IonCardTitle>
-              </IonCardHeader>
-              <IonCardContent>
-                <IonLabel>
-                  <p>📅 {new Date(event.start).toLocaleDateString()}</p>
-                  <p>
-                    🕒{" "}
-                    {new Date(event.start).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
-                  <p>📍 {event.location.split(",")[0]}</p>
-                </IonLabel>
-                <IonButton
-                  expand="block"
-                  color="primary"
-                  onClick={() => history.push(`/event/${event.id}`)}
-                >
-                  View Details
-                </IonButton>
-              </IonCardContent>
-            </IonCard>
+          {upcomingEvents.map((event, index) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+            >
+              <IonCard>
+                <IonCardHeader>
+                  <IonCardTitle>{event.title}</IonCardTitle>
+                </IonCardHeader>
+                <IonCardContent>
+                  <IonLabel>
+                    <p>📅 {new Date(event.start).toLocaleDateString()}</p>
+                    <p>
+                      🕒{" "}
+                      {new Date(event.start).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                    <p>📍 {event.location.split(",")[0]}</p>
+                  </IonLabel>
+                  <IonButton
+                    expand="block"
+                    color="primary"
+                    onClick={() => history.push(`/event/${event.id}`)}
+                  >
+                    View Details
+                  </IonButton>
+                </IonCardContent>
+              </IonCard>
+            </motion.div>
           ))}
+
           {upcomingEvents.length === 0 && (
             <IonCard>
               <IonCardContent>No upcoming events.</IonCardContent>
