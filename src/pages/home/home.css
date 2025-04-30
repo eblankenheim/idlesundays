@@ -41,7 +41,7 @@
 
 .text-block {
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 0rem 1rem;
 }
 
 .text-block h1 {
@@ -78,7 +78,7 @@
 }
 .hero-car.bottom {
   display: block;
-  margin: 2rem auto;
+  margin: auto auto;
   max-width: 80%;
   height: auto;
 }
