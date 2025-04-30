@@ -43,3 +43,7 @@
     transform: rotate(360deg);
   }
 }
+
+ion-content {
+  --offset-top: calc(-84px - env(safe-area-inset-top)) !important;
+}

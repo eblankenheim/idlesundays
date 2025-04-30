@@ -13,6 +13,7 @@ import {
   IonCardContent,
   IonLabel,
 } from "@ionic/react";
+import "./eventDetails.css";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import { useIonRouter } from "@ionic/react";
 
@@ -86,12 +87,6 @@ END:VCALENDAR
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>{event.title}</IonTitle> {/* ✅ Title moved to header */}
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding">
         {/* Event banner image */}
         {event.imageUrl ? (
@@ -110,7 +105,7 @@ END:VCALENDAR
         {/* ✅ New Event Details Section */}
         <IonCard>
           <IonCardHeader>
-            <IonCardTitle style={{ fontSize: "1.3rem" }}>
+            <IonCardTitle align="center" style={{ fontSize: "1.3rem" }}>
               Event Details
             </IonCardTitle>
           </IonCardHeader>

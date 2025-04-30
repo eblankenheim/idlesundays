@@ -20,7 +20,6 @@ import {
   IonRefresherContent,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
-import logo from "../../media/images/logo_640.png";
 import "react-calendar/dist/Calendar.css";
 import "./calendar.css"; // we'll create this for custom styling
 
@@ -71,13 +70,6 @@ const CalendarPage = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonToolbar className="toolbar-custom" align="center">
-            <img src={logo} alt="Idle Sundays Logo" className="logo" />
-          </IonToolbar>
-        </IonToolbar>
-      </IonHeader>
       <IonContent>
         <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
           <IonRefresherContent />
@@ -104,13 +96,7 @@ const CalendarPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <IonToolbar>
-            <IonTitle align="center">
-              <h3>Upcoming Events</h3>
-            </IonTitle>
-          </IonToolbar>
-        </motion.div>
+        ></motion.div>
         <IonList>
           {upcomingEvents.map((event, index) => (
             <motion.div

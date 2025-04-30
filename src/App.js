@@ -28,12 +28,14 @@ import "@ionic/react/css/display.css";
 import Home from "./pages/home/home";
 import CalendarPage from "./pages/calendar/calendarPage";
 import EventDetails from "./pages/eventDetails/eventDetails";
+import Header from "./components/header";
 
 setupIonicReact();
 
 function App() {
   return (
     <IonApp>
+      <Header />
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>

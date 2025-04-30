@@ -1,8 +1,6 @@
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonToolbar,
   IonRefresher,
   IonRefresherContent,
 } from "@ionic/react";
@@ -10,10 +8,9 @@ import { motion } from "framer-motion";
 import { useIonRouter } from "@ionic/react";
 import "./home.css";
 
-import logo from "../../media/images/logo_640.png";
 import neela from "../../media/images/neela_faded.png";
 import will from "../../media/images/will_faded.png";
-// import nubboi from "../../media/images/nubboi_faded.png";
+import nubboi from "../../media/images/nubboi_faded.png";
 
 const Home = () => {
   const router = useIonRouter();
@@ -26,13 +23,7 @@ const Home = () => {
 
   return (
     <IonPage>
-      <IonHeader translucent>
-        <IonToolbar className="toolbar-custom" align="center">
-          <img src={logo} alt="Idle Sundays Logo" className="logo" />
-        </IonToolbar>
-      </IonHeader>
-
-      <IonContent fullscreen className="home-content">
+      <IonContent fullscreen className="home-content custom-content">
         <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
           <IonRefresherContent />
         </IonRefresher>
@@ -70,11 +61,19 @@ const Home = () => {
           </p>
           <p className="link-line">
             View dates on the{" "}
-            <a onClick={() => router.push("/calendar", "forward")}>Calendar</a>
+            <a
+              href="/calendar"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/calendar", "forward");
+              }}
+            >
+              Calendar
+            </a>
           </p>
         </motion.div>
         <motion.img
-          // src={nubboi}
+          src={nubboi}
           alt="Third Car"
           className="hero-car bottom"
           initial={{ y: 100, opacity: 0 }}
