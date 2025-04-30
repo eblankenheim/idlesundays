@@ -71,7 +71,11 @@ const CalendarPage = () => {
   return (
     <IonPage>
       <IonContent>
-        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+        <IonRefresher
+          slot="fixed"
+          onIonRefresh={handleRefresh}
+          style={{ top: "60px" }}
+        >
           <IonRefresherContent />
         </IonRefresher>
         <motion.div

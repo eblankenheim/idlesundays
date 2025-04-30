@@ -23,8 +23,12 @@ const Home = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen className="home-content custom-content">
-        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+      <IonContent fullscreen className="home-content">
+        <IonRefresher
+          slot="fixed"
+          onIonRefresh={handleRefresh}
+          style={{ top: "60px" }} 
+        >
           <IonRefresherContent />
         </IonRefresher>
 
