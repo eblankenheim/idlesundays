@@ -1,9 +1,8 @@
 import React from "react";
 import {
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
+  IonRefresher,
+  IonRefresherContent,
   IonContent,
   IonCard,
   IonCardHeader,
@@ -26,16 +25,31 @@ const fadeInUp = {
   transition: { duration: 0.8 },
 };
 
+const handleRefresh = () => {
+  setTimeout(() => {
+    window.location.reload();
+  }, 500); // Delay just to show refresh UI
+};
+
 const FacebookGroupPage = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Join Our Facebook Group</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-
       <IonContent className="ion-padding">
+        <IonRefresher
+          slot="fixed"
+          onIonRefresh={handleRefresh}
+          style={{ top: "60px" }}
+        >
+          <IonRefresherContent />
+        </IonRefresher>
+        <motion.div
+          className="text-block"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <h2>Join Our Facebook Group</h2>
+        </motion.div>
         {/* Banner */}
         <motion.img
           src={FBBanner}
