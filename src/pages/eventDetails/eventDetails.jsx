@@ -102,18 +102,6 @@ END:VCALENDAR
           <></>
         )}
 
-        {/* Description section */}
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle>{event.title}</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>📋 {event.description}</IonCardContent>
-        </IonCard>
-
-        <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
-          + Add to Calendar
-        </IonButton>
-
         {/* ✅ New Event Details Section */}
         <IonCard>
           <IonCardHeader>
@@ -147,10 +135,21 @@ END:VCALENDAR
             </IonLabel>
           </IonCardContent>
         </IonCard>
+        {/* Description section */}
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>{event.title}</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>📋 {event.description}</IonCardContent>
+        </IonCard>
+
+        <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
+          + Add to Calendar
+        </IonButton>
         <IonButton
           expand="block"
           color="medium"
-          href="https://www.facebook.com/groups/980513540774540/permalink/POST_ID"
+          href={`https://www.facebook.com/events/${event.facebookEventId}`}
           target="_blank"
         >
           🔗 View on Facebook

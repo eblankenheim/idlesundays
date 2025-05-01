@@ -24,6 +24,7 @@ export const events = [
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
     locationImageUrl: location1Img,
+    facebookEventId: "1222536526128040",
   },
   {
     id: "2",
@@ -50,5 +51,6 @@ export const events = [
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
     locationImageUrl: location1Img,
+    facebookEventId: "",
   },
 ];
