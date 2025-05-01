@@ -102,6 +102,18 @@ END:VCALENDAR
           <></>
         )}
 
+        {/* Description section */}
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>{event.title}</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>📋 {event.description}</IonCardContent>
+        </IonCard>
+
+        <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
+          + Add to Calendar
+        </IonButton>
+
         {/* ✅ New Event Details Section */}
         <IonCard>
           <IonCardHeader>
@@ -135,25 +147,13 @@ END:VCALENDAR
             </IonLabel>
           </IonCardContent>
         </IonCard>
-
-        <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
-          + Add to Calendar
-        </IonButton>
-
-        {/* Description section */}
-        <IonCard>
-          <IonCardHeader>
-            <IonCardTitle>{event.title}</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>📋 {event.description}</IonCardContent>
-        </IonCard>
-
         <IonButton
           expand="block"
-          color="primary"
-          onClick={() => router.push("/calendar", "back")}
+          color="medium"
+          href="https://www.facebook.com/groups/980513540774540/permalink/POST_ID"
+          target="_blank"
         >
-          ← Back to Calendar
+          🔗 View on Facebook
         </IonButton>
 
         {/* Famous Birthdays */}
@@ -182,6 +182,14 @@ END:VCALENDAR
             </IonCardContent>
           </IonCard>
         )}
+
+        <IonButton
+          expand="block"
+          color="primary"
+          onClick={() => router.push("/calendar", "back")}
+        >
+          ← Back to Calendar
+        </IonButton>
       </IonContent>
     </IonPage>
   );

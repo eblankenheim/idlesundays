@@ -12,7 +12,7 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 
-import { homeOutline, calendarOutline } from "ionicons/icons";
+import { homeOutline, calendarOutline, logoFacebook } from "ionicons/icons";
 
 /* Ionic CSS */
 import "@ionic/react/css/normalize.css";
@@ -28,6 +28,7 @@ import "@ionic/react/css/display.css";
 import Home from "./pages/home/home";
 import CalendarPage from "./pages/calendar/calendarPage";
 import EventDetails from "./pages/eventDetails/eventDetails";
+import FacebookGroupPage from "./pages/facebook/facebookGroupPage";
 import Header from "./components/header";
 
 setupIonicReact();
@@ -42,6 +43,7 @@ function App() {
             <Route path="/home" component={Home} exact />
             <Route path="/calendar" component={CalendarPage} exact />
             <Route path="/event/:id" component={EventDetails} exact />
+            <Route path="/facebook" component={FacebookGroupPage} exact />
             <Redirect exact from="/" to="/home" />
           </IonRouterOutlet>
 
@@ -53,6 +55,10 @@ function App() {
             <IonTabButton tab="calendar" href="/calendar">
               <IonIcon icon={calendarOutline} />
               <IonLabel>Calendar</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="facebook" href="/facebook">
+              <IonIcon icon={logoFacebook} />
+              <IonLabel>Facebook</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

@@ -45,5 +45,5 @@
 }
 
 ion-content {
-  --offset-top: calc(-84px - env(safe-area-inset-top)) !important;
+  --offset-top: calc(-64px - env(safe-area-inset-top)) !important;
 }

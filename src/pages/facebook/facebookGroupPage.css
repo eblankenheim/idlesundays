@@ -1,0 +1,12 @@
+.fb-banner,
+.fb-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.fb-image.tall {
+  max-height: 600px;
+  object-fit: contain;
+}
