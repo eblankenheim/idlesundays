@@ -73,3 +73,29 @@
 .react-calendar__tile--now.react-calendar__year-view__months__month {
   background: #000000 !important;
 }
+
+.event-list {
+  padding-top: 0px;
+}
+
+.car-container.bottom {
+  width: 80%;
+  max-width: 400px;
+  margin: 1rem auto 0 auto;
+}
+
+.car-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 1;
+}
+
+.hero-car {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}

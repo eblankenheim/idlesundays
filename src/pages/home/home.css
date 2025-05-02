@@ -82,3 +82,33 @@
   max-width: 80%;
   height: auto;
 }
+
+.car-container {
+  position: relative;
+  width: 45%;
+  max-width: 300px;
+}
+
+.car-container.bottom {
+  width: 80%;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.car-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 1;
+}
+
+.hero-car {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+
+

@@ -20,6 +20,8 @@ import {
   IonRefresherContent,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
+import z06 from "../../media/images/z06_faded.png";
+import z06Black from "../../media/images/z06_black.png";
 import "react-calendar/dist/Calendar.css";
 import "./calendar.css"; // we'll create this for custom styling
 
@@ -96,12 +98,18 @@ const CalendarPage = () => {
             }}
           />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        ></motion.div>
-        <IonList>
+        <div className="car-container bottom">
+          <img src={z06Black} alt="Z06 Shadow" className="car-shadow" />
+          <motion.img
+            src={z06}
+            alt="Yellow Car"
+            className="hero-car"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 1 }}
+          />
+        </div>
+        <IonList className="event-list">
           {upcomingEvents.map((event, index) => (
             <motion.div
               key={event.id}
