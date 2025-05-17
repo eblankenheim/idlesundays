@@ -22,6 +22,9 @@ import {
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import z06 from "../../media/images/z06_faded.png";
 import z06Black from "../../media/images/z06_black.png";
+
+import { playAudio } from "../../utils/audioPlayer"; // adjust path as needed
+import Z06_Sound from "../../media/audio/Z06_Sound.mp3";
 import "react-calendar/dist/Calendar.css";
 import "./calendar.css"; // we'll create this for custom styling
 
@@ -76,16 +79,14 @@ const CalendarPage = () => {
         <IonRefresher
           slot="fixed"
           onIonRefresh={handleRefresh}
-          style={{ top: "60px" }}
-        >
+          style={{ top: "60px" }}>
           <IonRefresherContent />
         </IonRefresher>
         <motion.div
           className="calendar-container"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+          transition={{ duration: 0.8 }}>
           <Calendar
             onChange={handleDateClick}
             value={selectedDate}
@@ -98,7 +99,9 @@ const CalendarPage = () => {
             }}
           />
         </motion.div>
-        <div className="car-container bottom">
+        <div
+          className="car-container bottom"
+          onClick={() => playAudio(Z06_Sound)}>
           <img src={z06Black} alt="Z06 Shadow" className="car-shadow" />
           <motion.img
             src={z06}
@@ -115,8 +118,7 @@ const CalendarPage = () => {
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
-            >
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}>
               <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>{event.title}</IonCardTitle>
@@ -136,8 +138,7 @@ const CalendarPage = () => {
                   <IonButton
                     expand="block"
                     color="primary"
-                    onClick={() => history.push(`/event/${event.id}`)}
-                  >
+                    onClick={() => history.push(`/event/${event.id}`)}>
                     View Details
                   </IonButton>
                 </IonCardContent>
