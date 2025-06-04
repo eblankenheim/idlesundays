@@ -74,6 +74,17 @@
   background: #000000 !important;
 }
 
+.event-list-header {
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+.event-list-title {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
 .event-list {
   padding-top: 0px;
 }

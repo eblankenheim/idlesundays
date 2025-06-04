@@ -18,6 +18,8 @@ import {
   IonList,
   IonRefresher,
   IonRefresherContent,
+  IonListHeader,
+  IonItemDivider,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import z06 from "../../media/images/z06_faded.png";
@@ -67,6 +69,12 @@ const CalendarPage = () => {
     .sort((a, b) => new Date(a.start) - new Date(b.start))
     .slice(0, 2);
 
+  // Past events
+  const pastEvents = events
+    .filter((e) => new Date(e.start) < new Date())
+    .sort((a, b) => new Date(a.start) - new Date(b.start))
+    .slice(0, 2);
+
   const handleRefresh = () => {
     setTimeout(() => {
       window.location.reload();
@@ -79,14 +87,16 @@ const CalendarPage = () => {
         <IonRefresher
           slot="fixed"
           onIonRefresh={handleRefresh}
-          style={{ top: "60px" }}>
+          style={{ top: "60px" }}
+        >
           <IonRefresherContent />
         </IonRefresher>
         <motion.div
           className="calendar-container"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}>
+          transition={{ duration: 0.8 }}
+        >
           <Calendar
             onChange={handleDateClick}
             value={selectedDate}
@@ -101,7 +111,8 @@ const CalendarPage = () => {
         </motion.div>
         <div
           className="car-container bottom"
-          onClick={() => playAudio(Z06_Sound)}>
+          onClick={() => playAudio(Z06_Sound)}
+        >
           <img src={z06Black} alt="Z06 Shadow" className="car-shadow" />
           <motion.img
             src={z06}
@@ -112,13 +123,16 @@ const CalendarPage = () => {
             transition={{ duration: 1.5, delay: 1 }}
           />
         </div>
+        <IonItemDivider></IonItemDivider>
+        <IonTitle className="event-list-title">Upcoming Events</IonTitle>
         <IonList className="event-list">
           {upcomingEvents.map((event, index) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}>
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+            >
               <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>{event.title}</IonCardTitle>
@@ -138,7 +152,53 @@ const CalendarPage = () => {
                   <IonButton
                     expand="block"
                     color="primary"
-                    onClick={() => history.push(`/event/${event.id}`)}>
+                    onClick={() => history.push(`/event/${event.id}`)}
+                  >
+                    View Details
+                  </IonButton>
+                </IonCardContent>
+              </IonCard>
+            </motion.div>
+          ))}
+
+          {upcomingEvents.length === 0 && (
+            <IonCard>
+              <IonCardContent>No upcoming events.</IonCardContent>
+            </IonCard>
+          )}
+        </IonList>
+
+        <IonItemDivider></IonItemDivider>
+        <IonTitle className="event-list-title">Past Events</IonTitle>
+        <IonList className="event-list">
+          {pastEvents.map((event, index) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+            >
+              <IonCard>
+                <IonCardHeader>
+                  <IonCardTitle>{event.title}</IonCardTitle>
+                </IonCardHeader>
+                <IonCardContent>
+                  <IonLabel>
+                    <p>📅 {new Date(event.start).toLocaleDateString()}</p>
+                    <p>
+                      🕒{" "}
+                      {new Date(event.start).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                    <p>📍 {event.location.split(",")[0]}</p>
+                  </IonLabel>
+                  <IonButton
+                    expand="block"
+                    color="primary"
+                    onClick={() => history.push(`/event/${event.id}`)}
+                  >
                     View Details
                   </IonButton>
                 </IonCardContent>

@@ -88,27 +88,8 @@ END:VCALENDAR
   return (
     <IonPage>
       <IonContent className="ion-padding">
-        {/* Event banner image */}
-        {event.imageUrl ? (
-          <IonImg
-            src={
-              event.imageUrl ||
-              "https://source.unsplash.com/random/800x400?event"
-            }
-            alt={event.title}
-            style={{ borderRadius: "12px", marginBottom: "1rem" }}
-          />
-        ) : (
-          <></>
-        )}
-
         {/* ✅ New Event Details Section */}
         <IonCard>
-          <IonCardHeader>
-            <IonCardTitle align="center" style={{ fontSize: "1.3rem" }}>
-              Event Details
-            </IonCardTitle>
-          </IonCardHeader>
           <IonCardContent>
             {event.locationImageUrl && (
               <IonImg
@@ -155,7 +136,7 @@ END:VCALENDAR
           🔗 View on Facebook
         </IonButton>
 
-        {/* Famous Birthdays */}
+        {/* Famous Birthdays
         {event.famousBirthdays?.length > 0 && (
           <IonCard style={{ marginTop: "1rem" }}>
             <IonCardHeader>
@@ -180,7 +161,7 @@ END:VCALENDAR
               </ul>
             </IonCardContent>
           </IonCard>
-        )}
+        )} */}
 
         <IonButton
           expand="block"
