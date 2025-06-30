@@ -55,34 +55,41 @@ const EventDetails = (props) => {
   }
 
   const handleAddToCalendar = () => {
-    const icsContent = `
+    try {
+      const startDate = new Date(event.start);
+      const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000); // default +2 hours
+
+      const formatDate = (date) =>
+        date.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
+
+      const icsContent = `
 BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-UID:${event.id}
-DTSTAMP:${new Date().toISOString().replace(/[-:.]/g, "").slice(0, 15)}Z
-DTSTART:${new Date(event.start)
-      .toISOString()
-      .replace(/[-:.]/g, "")
-      .slice(0, 15)}Z
-DTEND:${new Date(event.end).toISOString().replace(/[-:.]/g, "").slice(0, 15)}Z
-SUMMARY:${event.title}
-DESCRIPTION:${event.description}
-LOCATION:${event.location}
-URL:${event.url}
+UID:${event.id || Date.now()}
+DTSTAMP:${formatDate(new Date())}
+DTSTART:${formatDate(startDate)}
+DTEND:${formatDate(endDate)}
+SUMMARY:${event.title || ""}
+DESCRIPTION:${event.description || ""}
+LOCATION:${event.location || ""}
+URL:${event.url || ""}
 END:VEVENT
 END:VCALENDAR
     `.trim();
 
-    const blob = new Blob([icsContent], {
-      type: "text/calendar;charset=utf-8",
-    });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `${event.title}.ics`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      const blob = new Blob([icsContent], {
+        type: "text/calendar;charset=utf-8",
+      });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${event.title || "event"}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Error creating calendar event:", err);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 import location1Img from "../media/images/collins_lot.PNG";
 import location2Img from "../media/images/event2.jpg";
 import location3Img from "../media/images/event3.jpg";
+import logo from "../media/images/logo_640.png";
 
 export const events = [
   {
@@ -43,6 +44,36 @@ export const events = [
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
     locationImageUrl: location3Img,
-    facebookEventId: "",
+    facebookEventId: "1245802053617955",
+  },
+  {
+    id: "5",
+    title: "Idle Sundays - Event #5",
+    start: "2025-07-27T16:30:00",
+    description: "Description pending...",
+    location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
+    url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
+    locationImageUrl: logo,
+    facebookEventId: "1400031397900946",
+  },
+  {
+    id: "6",
+    title: "Idle Sundays - Event #6",
+    start: "2025-08-10T16:30:00",
+    description: "Description pending...",
+    location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
+    url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
+    locationImageUrl: logo,
+    facebookEventId: "773226261934804",
+  },
+  {
+    id: "7",
+    title: "Idle Sundays - Event #7",
+    start: "2025-08-24T16:30:00",
+    description: "Description pending...",
+    location: "Vivid Detailing and Customs",
+    url: "https://www.google.com/maps/dir//54+Capitol+Dr,+Oconomowoc,+WI+53066/@43.1203127,-88.6069565,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x880491e730b3ef67:0xcf39ca3f6f8d9ac8!2m2!1d-88.5245558!2d43.1203423?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D",
+    locationImageUrl: logo,
+    facebookEventId: "739597328623689",
   },
 ];
