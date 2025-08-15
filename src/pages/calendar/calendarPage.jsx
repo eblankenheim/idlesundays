@@ -18,7 +18,6 @@ import {
   IonList,
   IonRefresher,
   IonRefresherContent,
-  IonListHeader,
   IonItemDivider,
 } from "@ionic/react";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
@@ -72,7 +71,7 @@ const CalendarPage = () => {
   // Past events
   const pastEvents = events
     .filter((e) => new Date(e.start) < new Date())
-    .sort((a, b) => new Date(a.start) - new Date(b.start))
+    .sort((a, b) => new Date(b.start) - new Date(a.start))
     .slice(0, 2);
 
   const handleRefresh = () => {

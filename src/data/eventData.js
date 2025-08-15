@@ -2,6 +2,7 @@ import location1Img from "../media/images/collins_lot.PNG";
 import location2Img from "../media/images/event2.jpg";
 import location3Img from "../media/images/event3.jpg";
 import logo from "../media/images/logo_640.png";
+import house from "../media/images/A&E_House_pic.jpg";
 
 export const events = [
   {
@@ -69,11 +70,12 @@ export const events = [
   {
     id: "7",
     title: "Idle Sundays - Event #7",
-    start: "2025-08-24T16:30:00",
-    description: "Description pending...",
-    location: "Vivid Detailing and Customs",
-    url: "https://www.google.com/maps/dir//54+Capitol+Dr,+Oconomowoc,+WI+53066/@43.1203127,-88.6069565,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x880491e730b3ef67:0xcf39ca3f6f8d9ac8!2m2!1d-88.5245558!2d43.1203423?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D",
-    locationImageUrl: logo,
+    start: "2025-08-24T17:00:00",
+    description:
+      "Grill out at our place! No driving around unfortunately, but we get to mingle and hangout!",
+    location: "Amalia and Evan's House",
+    url: "https://www.google.com/maps/dir//428+Champlain+Dr,+Johnson+Creek,+WI+53038,+USA/@43.0801413,-88.8668036,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805d61cc726d83f:0x1a716921104a2eb!2m2!1d-88.7844034!2d43.0801709?entry=ttu&g_ep=EgoyMDI1MDgxMi4wIKXMDSoASAFQAw%3D%3D",
+    locationImageUrl: house,
     facebookEventId: "739597328623689",
   },
 ];

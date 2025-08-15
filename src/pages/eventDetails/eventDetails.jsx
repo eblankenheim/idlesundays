@@ -63,19 +63,19 @@ const EventDetails = (props) => {
         date.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
 
       const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-UID:${event.id || Date.now()}
-DTSTAMP:${formatDate(new Date())}
-DTSTART:${formatDate(startDate)}
-DTEND:${formatDate(endDate)}
-SUMMARY:${event.title || ""}
-DESCRIPTION:${event.description || ""}
-LOCATION:${event.location || ""}
-URL:${event.url || ""}
-END:VEVENT
-END:VCALENDAR
+        BEGIN:VCALENDAR
+        VERSION:2.0
+        BEGIN:VEVENT
+        UID:${event.id || Date.now()}
+        DTSTAMP:${formatDate(new Date())}
+        DTSTART:${formatDate(startDate)}
+        DTEND:${formatDate(endDate)}
+        SUMMARY:${event.title || ""}
+        DESCRIPTION:${event.description || ""}
+        LOCATION:${event.location || ""}
+        URL:${event.url || ""}
+        END:VEVENT
+        END:VCALENDAR
     `.trim();
 
       const blob = new Blob([icsContent], {
