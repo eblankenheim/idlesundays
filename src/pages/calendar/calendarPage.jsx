@@ -23,6 +23,9 @@ import {
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import z06 from "../../media/images/z06_faded.png";
 import z06Black from "../../media/images/z06_black.png";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import LocationPinIcon from "@mui/icons-material/LocationPin";
 
 import { playAudio } from "../../utils/audioPlayer"; // adjust path as needed
 import Z06_Sound from "../../media/audio/Z06_Sound.mp3";
@@ -33,6 +36,40 @@ const CalendarPage = () => {
   const { events, loading } = useCalendarEvents();
   const history = useHistory();
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  // Format event date as "Month Day(ordinal) - M/D/YYYY"
+  const formatEventDate = (dateString) => {
+    const date = new Date(dateString);
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+
+    const ordinal = (n) => {
+      const j = n % 10;
+      const k = n % 100;
+      if (j === 1 && k !== 11) return "st";
+      if (j === 2 && k !== 12) return "nd";
+      if (j === 3 && k !== 13) return "rd";
+      return "th";
+    };
+
+    const numericMonth = date.getMonth() + 1;
+    return `${month} ${day}${ordinal(day)}`;
+  };
 
   if (loading) {
     return (
@@ -86,23 +123,22 @@ const CalendarPage = () => {
         <IonRefresher
           slot="fixed"
           onIonRefresh={handleRefresh}
-          style={{ top: "60px" }}
-        >
+          style={{ top: "60px" }}>
           <IonRefresherContent />
         </IonRefresher>
         <motion.div
           className="calendar-container"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+          transition={{ duration: 0.8 }}>
           <Calendar
             onChange={handleDateClick}
             value={selectedDate}
+            locale="en-US"
             tileClassName={({ date, view }) => {
               const isEventDate = events.some(
                 (event) =>
-                  new Date(event.start).toDateString() === date.toDateString()
+                  new Date(event.start).toDateString() === date.toDateString(),
               );
               return isEventDate ? "event-day" : null;
             }}
@@ -110,8 +146,7 @@ const CalendarPage = () => {
         </motion.div>
         <div
           className="car-container bottom"
-          onClick={() => playAudio(Z06_Sound)}
-        >
+          onClick={() => playAudio(Z06_Sound)}>
           <img src={z06Black} alt="Z06 Shadow" className="car-shadow" />
           <motion.img
             src={z06}
@@ -130,29 +165,64 @@ const CalendarPage = () => {
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
-            >
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}>
               <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>{event.title}</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent>
-                  <IonLabel>
-                    <p>📅 {new Date(event.start).toLocaleDateString()}</p>
-                    <p>
-                      🕒{" "}
-                      {new Date(event.start).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                    <p>📍 {event.location.split(",")[0]}</p>
+                  <IonLabel style={{ display: "flex", gap: "1rem" }}>
+                    <div style={{ flex: 2 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <DateRangeIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {formatEventDate(event.start)}
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <AccessTimeIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {new Date(event.start).toLocaleTimeString([], {
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                    <div style={{ flex: 3 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <LocationPinIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {event.location.split(",")[0]}
+                        </p>
+                      </div>
+                    </div>
                   </IonLabel>
                   <IonButton
                     expand="block"
                     color="primary"
-                    onClick={() => history.push(`/event/${event.id}`)}
-                  >
+                    onClick={() => history.push(`/event/${event.id}`)}>
                     View Details
                   </IonButton>
                 </IonCardContent>
@@ -175,41 +245,70 @@ const CalendarPage = () => {
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
-            >
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}>
               <IonCard>
                 <IonCardHeader>
                   <IonCardTitle>{event.title}</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent>
-                  <IonLabel>
-                    <p>📅 {new Date(event.start).toLocaleDateString()}</p>
-                    <p>
-                      🕒{" "}
-                      {new Date(event.start).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                    <p>📍 {event.location.split(",")[0]}</p>
+                  <IonLabel style={{ display: "flex", gap: "1rem" }}>
+                    <div style={{ flex: 2 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <DateRangeIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {formatEventDate(event.start)}
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <AccessTimeIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {new Date(event.start).toLocaleTimeString([], {
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                    <div style={{ flex: 3 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.5rem",
+                          alignItems: "flex-start",
+                        }}>
+                        <LocationPinIcon
+                          style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                        />
+                        <p style={{ margin: 0 }}>
+                          {event.location.split(",")[0]}
+                        </p>
+                      </div>
+                    </div>
                   </IonLabel>
                   <IonButton
                     expand="block"
                     color="primary"
-                    onClick={() => history.push(`/event/${event.id}`)}
-                  >
+                    onClick={() => history.push(`/event/${event.id}`)}>
                     View Details
                   </IonButton>
                 </IonCardContent>
               </IonCard>
             </motion.div>
           ))}
-
-          {upcomingEvents.length === 0 && (
-            <IonCard>
-              <IonCardContent>No upcoming events.</IonCardContent>
-            </IonCard>
-          )}
         </IonList>
       </IonContent>
     </IonPage>

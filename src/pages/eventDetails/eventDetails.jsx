@@ -136,10 +136,9 @@ const EventDetails = (props) => {
         </IonButton>
         <IonButton
           expand="block"
-          color="medium"
+          color="primary"
           href={`https://www.facebook.com/events/${event.facebookEventId}`}
-          target="_blank"
-        >
+          target="_blank">
           🔗 View on Facebook
         </IonButton>
 
@@ -172,9 +171,8 @@ const EventDetails = (props) => {
 
         <IonButton
           expand="block"
-          color="primary"
-          onClick={() => router.push("/calendar", "back")}
-        >
+          color="medium"
+          onClick={() => router.push("/calendar", "back")}>
           ← Back to Calendar
         </IonButton>
       </IonContent>
