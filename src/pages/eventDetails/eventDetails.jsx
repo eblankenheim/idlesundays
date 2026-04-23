@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonPage,
   IonHeader,
@@ -13,6 +12,9 @@ import {
   IonCardContent,
   IonLabel,
 } from "@ionic/react";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import LocationPinIcon from "@mui/icons-material/LocationPin";
 import "./eventDetails.css";
 import { useCalendarEvents } from "../../utils/useCalendarEvents";
 import { useIonRouter } from "@ionic/react";
@@ -21,6 +23,37 @@ const EventDetails = (props) => {
   const { id } = props.match.params;
   const { events, loading } = useCalendarEvents();
   const router = useIonRouter();
+
+  // Format event date as "Month Day(ordinal) - M/D/YYYY"
+  const formatEventDate = (dateString) => {
+    const date = new Date(dateString);
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate();
+
+    const ordinal = (n) => {
+      const j = n % 10;
+      const k = n % 100;
+      if (j === 1 && k !== 11) return "st";
+      if (j === 2 && k !== 12) return "nd";
+      if (j === 3 && k !== 13) return "rd";
+      return "th";
+    };
+    return `${month} ${day}${ordinal(day)}`;
+  };
 
   if (loading) {
     return (
@@ -106,20 +139,47 @@ const EventDetails = (props) => {
               />
             )}
             <IonLabel>
-              <p>
-                <strong>Date:</strong> 📅{" "}
-                {new Date(event.start).toLocaleDateString()}
-              </p>
-              <p>
-                <strong>Time:</strong> 🕒{" "}
-                {new Date(event.start).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </p>
-              <p>
-                <strong>Location:</strong> 📍 {event.location}
-              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "flex-start",
+                  marginBottom: "0.5rem",
+                }}>
+                <DateRangeIcon style={{ fontSize: "1.2rem", flexShrink: 0 }} />
+                <p style={{ margin: 0 }}>{formatEventDate(event.start)}</p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "flex-start",
+                  marginBottom: "0.5rem",
+                }}>
+                <AccessTimeIcon style={{ fontSize: "1.2rem", flexShrink: 0 }} />
+                <p style={{ margin: 0 }}>
+                  {new Date(event.start).toLocaleTimeString([], {
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })}
+                </p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "flex-start",
+                }}>
+                <LocationPinIcon
+                  style={{ fontSize: "1.2rem", flexShrink: 0 }}
+                />
+                <div style={{ margin: 0 }}>
+                  <div>{event.location.split(",")[0]},</div>
+                  <div>
+                    {event.location.split(",").slice(1).join(",").trim()}
+                  </div>
+                </div>
+              </div>
             </IonLabel>
           </IonCardContent>
         </IonCard>
@@ -128,18 +188,18 @@ const EventDetails = (props) => {
           <IonCardHeader>
             <IonCardTitle>{event.title}</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>📋 {event.description}</IonCardContent>
+          <IonCardContent>{event.description}</IonCardContent>
         </IonCard>
 
         <IonButton expand="block" color="success" onClick={handleAddToCalendar}>
-          + Add to Calendar
+          Add to Phone Calendar
         </IonButton>
         <IonButton
           expand="block"
           color="primary"
           href={`https://www.facebook.com/events/${event.facebookEventId}`}
           target="_blank">
-          🔗 View on Facebook
+          View on Facebook
         </IonButton>
 
         {/* Famous Birthdays
