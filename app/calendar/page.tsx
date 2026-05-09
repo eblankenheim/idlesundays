@@ -59,13 +59,12 @@ export default function CalendarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black text-white py-6">
+      <div className="max-w-6xl mx-auto ">
         <motion.div
-          className="mb-12"
+          className="mb-6 px-4"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+          animate={{ opacity: 1 }}>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Upcoming Events
           </h1>
@@ -74,16 +73,15 @@ export default function CalendarPage() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 px-2">
           {/* Calendar Widget */}
           <motion.div className="lg:col-span-2">
-            <div className="bg-gray-900 rounded border border-gray-700 p-6">
+            <div className="bg-gray-900 rounded border border-gray-700 py-6">
               {/* Month Navigation */}
               <div className="flex items-center justify-between mb-6">
                 <button
                   onClick={() => setCurrentDate(subMonths(currentDate, 1))}
-                  className="p-2 hover:bg-gray-800 rounded transition-colors text-cyan-400"
-                >
+                  className="p-2 hover:bg-gray-800 rounded transition-colors text-cyan-400">
                   ← Prev
                 </button>
                 <h2 className="text-2xl font-bold">
@@ -91,8 +89,7 @@ export default function CalendarPage() {
                 </h2>
                 <button
                   onClick={() => setCurrentDate(addMonths(currentDate, 1))}
-                  className="p-2 hover:bg-gray-800 rounded transition-colors text-cyan-400"
-                >
+                  className="p-2 hover:bg-gray-800 rounded transition-colors text-cyan-400">
                   Next →
                 </button>
               </div>
@@ -103,8 +100,7 @@ export default function CalendarPage() {
                   (day) => (
                     <div
                       key={day}
-                      className="text-center font-semibold text-gray-400 py-2 text-sm sm:text-base"
-                    >
+                      className="text-center font-semibold text-gray-400 py-2 text-sm sm:text-base">
                       {day}
                     </div>
                   ),
@@ -124,13 +120,12 @@ export default function CalendarPage() {
                       className={`min-h-16 sm:min-h-20 p-1 sm:p-2 rounded text-xs sm:text-sm border ${
                         day
                           ? isToday
-                            ? "bg-cyan-400 text-black border-cyan-300"
+                            ? "text-black bg-green-900 border-green-700"
                             : dayEvents.length > 0
-                              ? "bg-green-900 border-green-700"
+                              ? "bg-cyan-900 border-cyan-300"
                               : "bg-gray-800 border-gray-700"
                           : "bg-black border-transparent"
-                      }`}
-                    >
+                      }`}>
                       {day && (
                         <>
                           <div className="font-bold mb-1">
@@ -142,10 +137,17 @@ export default function CalendarPage() {
                                 <Link
                                   key={event.id}
                                   href={`/events/${event.id}`}
-                                  className="text-xs bg-cyan-400 text-black p-1 rounded block truncate hover:bg-cyan-300 font-semibold"
-                                  title={event.title}
-                                >
-                                  {event.title.substring(0, 10)}...
+                                  className="inline-flex items-center justify-center hover:opacity-80 transition-opacity w-full"
+                                  title={event.title}>
+                                  <img
+                                    src="/images/wheel.png"
+                                    alt=""
+                                    className="w-9 h-9"
+                                    style={{
+                                      filter:
+                                        "brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(1000%) hue-rotate(180deg)",
+                                    }}
+                                  />
                                 </Link>
                               ))}
                               {dayEvents.length > 1 && (
@@ -175,8 +177,7 @@ export default function CalendarPage() {
                   <Link
                     key={event.id}
                     href={`/events/${event.id}`}
-                    className="block border-l-4 border-cyan-400 p-3 hover:bg-gray-800 rounded transition-colors"
-                  >
+                    className="block border-l-4 border-cyan-400 p-3 hover:bg-gray-800 rounded transition-colors">
                     <div className="font-semibold text-white hover:text-cyan-400">
                       {event.title}
                     </div>

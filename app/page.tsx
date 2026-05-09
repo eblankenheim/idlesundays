@@ -29,50 +29,46 @@ export default function HomePage() {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <motion.div
-        className="relative py-20 z-0"
+        className="relative py-10 z-0"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
-      >
+        variants={containerVariants}>
         {/* Left Car - Peeking In */}
         <img
           src="/images/will_faded.png"
           alt="Car background"
-          className="absolute -right-12 sm:-left-20 lg:-left-32 top-1/4 sm:top-1/2 transform -translate-y-1/2 w-72 sm:w-96 lg:w-[500px] h-64 sm:h-96 lg:h-[500px] opacity-50 sm:opacity-60 lg:opacity-70 pointer-events-none object-contain"
+          className="absolute -left-20 sm:-left-20 lg:-left-32 top-22 sm:top-1/2 transform -translate-y-1/2 w-72 sm:w-96 lg:w-[500px] h-64 sm:h-96 lg:h-[500px] opacity-50 sm:opacity-60 lg:opacity-70 pointer-events-none object-contain"
         />
 
         {/* Right Car - Peeking In */}
         <img
           src="/images/z06_faded.png"
           alt="Car background"
-          className="absolute -right-8 sm:-right-2 lg:-right-16 -bottom-20 w-72 sm:w-96 lg:w-[600px] h-72 sm:h-96 lg:h-[520px] opacity-50 sm:opacity-60 lg:opacity-70 pointer-events-none object-contain"
+          className="absolute -right-8 sm:-right-2 lg:-right-16 top-20 w-72 sm:w-96 lg:w-[600px] h-72 sm:h-96 lg:h-[520px] opacity-50 sm:opacity-60 lg:opacity-70 pointer-events-none object-contain"
         />
 
         {/* Middle Car - behind cards centered */}
         <img
           src="/images/nubboi_faded.png"
           alt="Car background"
-          className="absolute left-1/2 -translate-x-1/2 top-20 sm:top-32 lg:top-[450px] w-56 sm:w-80 lg:w-[900px] h-56 sm:h-80 lg:h-96 opacity-30 sm:opacity-40 lg:opacity-50 z-10 pointer-events-none object-contain"
+          className="absolute left-1/2 -translate-x-1/2 top-[430px] lg:top-[450px] w-[900px] lg:w-[900px] h-56 sm:h-80 lg:h-96 opacity-30 sm:opacity-40 lg:opacity-50 z-10 pointer-events-none object-contain"
         />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="flex flex-col lg:flex-row items-center justify-center gap-12"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             {/* Text Content */}
             <div className="flex-1">
               <motion.h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
-                variants={itemVariants}
-              >
+                variants={itemVariants}>
                 Idle <span className="text-cyan-400">Sundays</span>
               </motion.h1>
 
               <motion.p
                 className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed"
-                variants={itemVariants}
-              >
+                variants={itemVariants}>
                 Join us for scenic backroads cruises through Wisconsin.
                 Experience the thrill of automotive passion with a community of
                 enthusiasts who share your love for cars.
@@ -80,12 +76,10 @@ export default function HomePage() {
 
               <motion.div
                 className="flex flex-col sm:flex-row gap-4"
-                variants={itemVariants}
-              >
+                variants={itemVariants}>
                 <Link
                   href="/calendar"
-                  className="px-8 py-3 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all text-center"
-                >
+                  className="px-8 py-3 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all text-center">
                   View Events
                 </Link>
 
@@ -93,8 +87,7 @@ export default function HomePage() {
                   href="https://www.facebook.com/groups/idlesundayswisconsin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
-                >
+                  className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
                   Join Community
                 </a>
               </motion.div>
@@ -109,20 +102,17 @@ export default function HomePage() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={containerVariants}
-      >
+        variants={containerVariants}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-center mb-12"
-            variants={itemVariants}
-          >
+            className="text-3xl sm:text-4xl font-bold text-center mb-8"
+            variants={itemVariants}>
             Why Join <span className="text-cyan-400">Idle Sundays?</span>
           </motion.h2>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-8"
-            variants={containerVariants}
-          >
+            className="grid md:grid-cols-3 gap-4"
+            variants={containerVariants}>
             {[
               {
                 icon: "🛣️",
@@ -142,11 +132,10 @@ export default function HomePage() {
             ].map((feature, idx) => (
               <motion.div
                 key={idx}
-                className="backdrop-blur-sm p-6 rounded border border-gray-700 hover:border-cyan-400 transition-colors relative z-30"
-                variants={itemVariants}
-              >
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                className="backdrop-blur-sm p-3 rounded border border-gray-700 hover:border-cyan-400 transition-colors relative z-30"
+                variants={itemVariants}>
+                <div className="text-5xl mb-2">{feature.icon}</div>
+                <h3 className="text-2xl font-bold mb-1.5">{feature.title}</h3>
                 <p className="text-lg text-gray-400">{feature.description}</p>
               </motion.div>
             ))}
@@ -156,30 +145,26 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <motion.div
-        className="bg-gray-900 py-16 border-t border-gray-700"
+        className="bg-gray-900 py-12 border-t border-gray-700"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={containerVariants}
-      >
+        variants={containerVariants}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             className="text-3xl sm:text-4xl font-bold mb-6"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             Ready for Your Next Adventure?
           </motion.h2>
           <motion.p
             className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             Check out our upcoming events and join the Idle Sundays community
           </motion.p>
           <motion.div variants={itemVariants}>
             <Link
               href="/calendar"
-              className="px-10 py-4 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all inline-block"
-            >
+              className="px-10 py-4 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all inline-block">
               Explore Events
             </Link>
           </motion.div>

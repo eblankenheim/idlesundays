@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { People, DirectionsCar, Map } from "@mui/icons-material";
 
 export default function FacebookPage() {
   const containerVariants = {
@@ -30,8 +31,7 @@ export default function FacebookPage() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="max-w-3xl mx-auto"
-        >
+          className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div className="text-center mb-12" variants={itemVariants}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
@@ -45,21 +45,21 @@ export default function FacebookPage() {
           {/* Main CTA */}
           <motion.div
             className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border-2 border-cyan-400 p-8 mb-12"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             <div className="text-center">
               <div className="text-6xl mb-4">👥</div>
-              <h2 className="text-3xl font-bold mb-4">Idle Sundays Wisconsin</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Idle Sundays - Wisconsin
+              </h2>
               <p className="text-gray-300 mb-8 text-lg">
-                Join our exclusive Facebook group to:
+                Keep up with the group:
               </p>
               <ul className="space-y-3 mb-8 text-left max-w-md mx-auto">
                 {[
-                  'Get early access to event announcements',
-                  'Connect with other car enthusiasts',
-                  'Share photos and videos from events',
-                  'Discuss upcoming cruises and meet-ups',
-                  'Stay updated on all Idle Sundays news',
+                  "Get event announcements and route details",
+                  "Share photos and stories from cruises",
+                  "Chat with other car lovers",
+                  "Plan the next meet-up",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <span className="text-cyan-400 font-bold mt-1">✓</span>
@@ -68,11 +68,10 @@ export default function FacebookPage() {
                 ))}
               </ul>
               <a
-                href="https://www.facebook.com/groups/idlesundayswisconsin"
+                href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all text-lg"
-              >
+                className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all text-lg">
                 Join Group
               </a>
             </div>
@@ -80,20 +79,18 @@ export default function FacebookPage() {
 
           {/* Stats */}
           <motion.div
-            className="grid md:grid-cols-3 gap-6 mb-12"
-            variants={containerVariants}
-          >
+            className="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
+            variants={containerVariants}>
             {[
-              { icon: '👤', label: 'Members', value: '500+' },
-              { icon: '📸', label: 'Posts Monthly', value: '50+' },
-              { icon: '🎉', label: 'Events Yearly', value: '30+' },
+              { icon: People, label: "Members", value: "51" },
+              { icon: DirectionsCar, label: "Car Meets", value: "Monthly" },
+              { icon: Map, label: "Routes", value: "Growing" },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
                 className="bg-gray-900 p-6 rounded border border-gray-700 text-center hover:border-cyan-400 transition-colors"
-                variants={itemVariants}
-              >
-                <div className="text-4xl mb-3">{stat.icon}</div>
+                variants={itemVariants}>
+                <stat.icon className="text-4xl mb-3 text-cyan-400" />
                 <div className="text-2xl font-bold text-cyan-400 mb-2">
                   {stat.value}
                 </div>
@@ -102,23 +99,21 @@ export default function FacebookPage() {
             ))}
           </motion.div>
 
-          {/* Why Join */}
+          {/* About Us */}
           <motion.div className="mb-12" variants={itemVariants}>
-            <h3 className="text-3xl font-bold mb-6 text-cyan-400">Why Join?</h3>
+            <h3 className="text-3xl font-bold mb-6 text-cyan-400">
+              What It's About
+            </h3>
             <div className="space-y-4 text-gray-300">
               <p>
-                The Idle Sundays community is more than just an events group—it's a movement
-                of passionate car enthusiasts who share a love for scenic backroads and quality
-                time with fellow drivers.
+                Idle Sundays is just a group of friends who love a good drive.
+                We cruise scenic backroads, enjoy great company, and maybe stop
+                for coffee or a bite. No drama, no exclusive vibes—just people
+                who appreciate cars and good times.
               </p>
               <p>
-                Our Facebook group is the hub of all activity. Members share event photos,
-                plan trips, discuss automotive topics, and build lasting friendships with
-                like-minded individuals across Wisconsin.
-              </p>
-              <p>
-                Whether you're a seasoned car enthusiast or just looking for a fun way to
-                spend your Sundays, you'll find a welcoming community ready to cruise.
+                Join us on Facebook to stay in the loop on our monthly meets and
+                see where we're headed next.
               </p>
             </div>
           </motion.div>
@@ -126,20 +121,17 @@ export default function FacebookPage() {
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             <a
-              href="https://www.facebook.com/groups/idlesundayswisconsin"
+              href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center"
-            >
+              className="px-8 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center">
               Join on Facebook
             </a>
             <Link
               href="/calendar"
-              className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
-            >
+              className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
               View Events
             </Link>
           </motion.div>

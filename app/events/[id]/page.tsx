@@ -7,6 +7,9 @@ import { motion } from "framer-motion";
 import { fetchEventById } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
+import EastIcon from "@mui/icons-material/East";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export default function EventDetailsPage() {
   const params = useParams();
@@ -56,8 +59,7 @@ export default function EventDetailsPage() {
           </p>
           <Link
             href="/calendar"
-            className="inline-block px-6 py-3 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300"
-          >
+            className="inline-block px-6 py-3 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300">
             Back to Calendar
           </Link>
         </div>
@@ -67,17 +69,15 @@ export default function EventDetailsPage() {
 
   return (
     <motion.div
-      className="min-h-screen bg-black text-white py-12"
+      className="min-h-screen bg-black text-white py-6"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
+      animate={{ opacity: 1 }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-6">
           <Link
             href="/calendar"
-            className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2"
-          >
+            className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2">
             ← Back to Calendar
           </Link>
         </div>
@@ -86,57 +86,56 @@ export default function EventDetailsPage() {
           className="bg-gray-900 rounded border border-gray-700 overflow-hidden"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
+          transition={{ duration: 0.6 }}>
           {/* Event Image */}
           {event.locationImageUrl && (
-            <div className="relative w-full h-64 sm:h-80 bg-black">
+            <div className="relative h-44 sm:h-80 bg-black">
               <Image
                 src={event.locationImageUrl}
                 alt={event.title}
                 fill
-                className="object-cover"
+                className="object-contain object-center opacity-80"
                 priority
               />
             </div>
           )}
 
           {/* Content */}
-          <div className="p-6 sm:p-8">
+          <div className="p-3 sm:p-8">
             {/* Title & Date */}
             <motion.div
               className="mb-6"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
-            >
+              transition={{ delay: 0.1 }}>
               <h1 className="text-4xl sm:text-5xl font-bold mb-3">
                 {event.title}
               </h1>
               <div className="flex flex-col sm:flex-row gap-4 text-lg text-gray-300">
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">📅</span>
+                  <CalendarTodayIcon sx={{ fontSize: "22px", color: "cyan" }} />
                   {format(new Date(event.start), "EEEE, MMMM d, yyyy")}
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">🕒</span>
+                  <AccessTimeIcon sx={{ fontSize: "22px", color: "cyan" }} />
                   {format(new Date(event.start), "h:mm a")}
                 </div>
               </div>
             </motion.div>
 
             {/* Divider */}
-            <div className="border-t border-gray-700 my-6"></div>
+            <div className="border-t border-gray-700 my-3"></div>
 
             {/* Description */}
             {event.description && (
               <motion.div
-                className="mb-6"
+                className="mb-3"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <h2 className="text-2xl font-bold mb-3 text-cyan-400">About</h2>
+                transition={{ delay: 0.2 }}>
+                <h2 className="text-2xl font-bold mb-1.5 text-cyan-400">
+                  About
+                </h2>
                 <p className="text-gray-300 leading-relaxed whitespace-pre-wrap">
                   {event.description}
                 </p>
@@ -146,13 +145,12 @@ export default function EventDetailsPage() {
             {/* Location */}
             {event.location && (
               <motion.div
-                className="mb-6"
+                className="mb-3"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <h2 className="text-2xl font-bold mb-3 text-cyan-400">
-                  📍 Location
+                transition={{ delay: 0.3 }}>
+                <h2 className="text-2xl font-bold mb-1.5 text-cyan-400">
+                  Location
                 </h2>
                 <p className="text-gray-300 text-lg">{event.location}</p>
               </motion.div>
@@ -161,18 +159,16 @@ export default function EventDetailsPage() {
             {/* Links */}
             {(event.url || event.facebookEventId) && (
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 mt-8"
+                className="flex flex-col sm:flex-row gap-4 mt-4"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
+                transition={{ delay: 0.4 }}>
                 {event.facebookEventId && (
                   <a
                     href={`https://www.facebook.com/events/${event.facebookEventId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-6 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center"
-                  >
+                    className="flex-1 px-6 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center">
                     View on Facebook
                   </a>
                 )}
@@ -181,9 +177,8 @@ export default function EventDetailsPage() {
                     href={event.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-6 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
-                  >
-                    More Info
+                    className="flex-1 flex items-center justify-center gap-1 px-6 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
+                    Directions <EastIcon sx={{ fontSize: "18px" }} />
                   </a>
                 )}
               </motion.div>
@@ -194,16 +189,14 @@ export default function EventDetailsPage() {
               className="mt-8 p-4 bg-gray-800 rounded border border-cyan-400"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
+              transition={{ delay: 0.5 }}>
               <p className="text-gray-300">
                 Want to stay updated? Join our{" "}
                 <a
-                  href="https://www.facebook.com/groups/idlesundayswisconsin"
+                  href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 font-bold hover:text-cyan-300"
-                >
+                  className="text-cyan-400 font-bold hover:text-cyan-300">
                   Facebook community
                 </a>
               </p>

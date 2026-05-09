@@ -76,7 +76,7 @@ export const events: Event[] = [
   },
   {
     id: "8",
-    title: "Idle Sundays - Event #8",
+    title: "Event #8",
     start: "2026-05-31T16:30:00",
     description: "Description pending...",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
@@ -86,7 +86,7 @@ export const events: Event[] = [
   },
   {
     id: "9",
-    title: "Idle Sundays - Event #9",
+    title: "Event #9",
     start: "2026-06-14T16:30:00",
     description: "Description pending...",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
@@ -96,7 +96,7 @@ export const events: Event[] = [
   },
   {
     id: "10",
-    title: "Idle Sundays - Event #10",
+    title: "Event #10",
     start: "2026-07-05T16:30:00",
     description: "Description pending...",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
@@ -106,7 +106,7 @@ export const events: Event[] = [
   },
   {
     id: "11",
-    title: "Idle Sundays - Event #11",
+    title: "Event #11",
     start: "2026-07-26T16:30:00",
     description: "Description pending...",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
@@ -116,7 +116,7 @@ export const events: Event[] = [
   },
   {
     id: "12",
-    title: "Idle Sundays - Event #12",
+    title: "Event #12",
     start: "2026-08-16T16:30:00",
     description: "Description pending...",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
@@ -126,7 +126,7 @@ export const events: Event[] = [
   },
   {
     id: "13",
-    title: "Idle Sundays - Event #13",
+    title: "Event #13",
     start: "2026-09-06T17:00:00",
     description:
       "Grill out at our place! No driving around unfortunately, but we get to mingle and hangout!",
