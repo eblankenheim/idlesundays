@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Using standard build output for S3 deployment
-  // The build output will be in .next/ directory
+  output: "export",
+  // Static export for S3 deployment
+  // The build output will be in ./out/ directory
 };
 
 module.exports = nextConfig;
