@@ -199,7 +199,7 @@ export default function EventDetailsPage() {
               <p className="text-gray-300">
                 Want to stay updated? Join our{" "}
                 <a
-                  href="https://www.facebook.com/groups/idlesundayswisconsin"
+                  href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-400 font-bold hover:text-cyan-300"
