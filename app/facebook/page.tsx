@@ -32,18 +32,16 @@ export default function FacebookPage() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="max-w-4xl mx-auto"
-        >
+          className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
             className="text-center mb-6 py-2 px-8 rounded-lg relative overflow-hidden"
             style={{
-              backgroundImage: "url(/images/fb_banner.PNG)",
+              backgroundImage: "url(/images/fb_banner.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="relative z-10">
@@ -59,8 +57,7 @@ export default function FacebookPage() {
           {/* Main CTA */}
           <motion.div
             className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border-2 border-cyan-400 p-8 mb-12"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             <div className="text-center">
               <FacebookIcon
                 sx={{ fontSize: 96, color: "#06B6D4", marginBottom: 2 }}
@@ -84,8 +81,7 @@ export default function FacebookPage() {
                 href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all text-lg"
-              >
+                className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all text-lg">
                 View on Facebook
               </a>
             </div>
@@ -94,8 +90,7 @@ export default function FacebookPage() {
           {/* Stats */}
           <motion.div
             className="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
-            variants={containerVariants}
-          >
+            variants={containerVariants}>
             {[
               { icon: People, label: "Members", value: "50+" },
               { icon: DirectionsCar, label: "Car Meets", value: "Monthly" },
@@ -104,8 +99,7 @@ export default function FacebookPage() {
               <motion.div
                 key={idx}
                 className="bg-gray-900 p-6 rounded border border-gray-700 text-center hover:border-cyan-400 transition-colors"
-                variants={itemVariants}
-              >
+                variants={itemVariants}>
                 <stat.icon className="text-4xl mb-3 text-cyan-400" />
                 <div className="text-2xl font-bold text-cyan-400 mb-2">
                   {stat.value}
@@ -139,8 +133,7 @@ export default function FacebookPage() {
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mt-6 justify-center"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             <p>
               Join us on Facebook to stay in the loop on our monthly meets and
               see where we're headed next.
@@ -149,14 +142,12 @@ export default function FacebookPage() {
               href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center"
-            >
+              className="px-8 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center">
               Join on Facebook
             </a>
             <Link
               href="/calendar"
-              className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
-            >
+              className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
               View Events
             </Link>
           </motion.div>
