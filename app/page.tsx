@@ -42,7 +42,7 @@ export default function HomePage() {
           <motion.img
             src="/images/will_faded.png"
             alt="Car background"
-            className="absolute -left-10 sm:-left-20 lg:-left-32 -top-16 sm:top-1/2 transform -translate-y-1/2 w-72 sm:w-96 lg:w-[500px] h-64 sm:h-96 lg:h-[500px] opacity-40 pointer-events-none object-contain"
+            className="absolute -left-10 sm:-left-20 lg:-left-32 -top-16 transform -translate-y-1/2 w-72 sm:w-96 lg:w-[500px] h-64 sm:h-96 lg:h-[500px] opacity-40 pointer-events-none object-contain"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 0.4, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -52,7 +52,7 @@ export default function HomePage() {
           <motion.img
             src="/images/z06_faded.png"
             alt="Car background"
-            className="absolute -right-16 sm:-right-2 lg:-right-16 top-[85px] w-72 sm:w-96 lg:w-[600px] h-72 sm:h-96 lg:h-[520px] opacity-40 pointer-events-none object-contain"
+            className="absolute -right-16 sm:-right-2 lg:-right-16 top-[85px] lg:-top-[60px] w-72 sm:w-96 lg:w-[600px] h-72 sm:h-96 lg:h-[520px] opacity-40 pointer-events-none object-contain"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 0.4, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -63,7 +63,7 @@ export default function HomePage() {
         <motion.img
           src="/images/nubboi_faded.png"
           alt="Car background"
-          className="absolute right-2 -translate-x-1/2 top-[420px] lg:top-[450px] w-[900px] lg:w-[900px] h-56 sm:h-80 lg:h-96 opacity-40 z-10 pointer-events-none object-contain"
+          className="absolute right-2 -translate-x-1/2 lg:right-1/4 top-[420px] lg:top-[300px] w-[900px] lg:w-[900px] h-56 sm:h-80 lg:h-96 opacity-40 z-10 pointer-events-none object-contain"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 0.4, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -170,7 +170,7 @@ export default function HomePage() {
         <img
           src="/images/neela_faded.png"
           alt="Car background"
-          className="absolute right-4 lg:-right-20 top-16 transform -translate-y-1/2 w-80 lg:w-[500px] h-72 lg:h-[480px] opacity-30 pointer-events-none object-contain z-0"
+          className="absolute right-4 top-16 transform -translate-y-1/2 lg:right-1/3 lg:top-32 w-80 lg:w-[500px] h-72 lg:h-[480px] opacity-30 pointer-events-none object-contain z-0"
         />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

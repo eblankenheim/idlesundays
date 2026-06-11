@@ -89,11 +89,12 @@ export const events: Event[] = [
     id: "9",
     title: "Event #9",
     start: "2026-06-14T16:30:00",
-    description: "Coming Soon...",
-    location: "",
-    url: "",
-    locationImageUrl: "/images/logo_640.png",
-    facebookEventId: "",
+    description:
+      "Summer's hitting its stride, and so are we. Join us for Idle Sundays' 9th event — another laid-back cruise through Wisconsin's backroads with good cars, good people, and zero agenda. This time we're kicking things off from the Cool Banana BP in Watertown, WI at 4:30 PM. Two wheels, four wheels, whatever — just bring yourself and show up ready to roll.",
+    location: "BP (Cool Banana), Watertown, WI, United States",
+    url: "https://www.google.com/maps/place/821+N+Church+St,+Watertown,+WI+53098/data=!4m2!3m1!1s0x88042ba72a53d9b5:0xf9f1ffebd481afae?sa=X&ved=1t:242&ictx=111",
+    locationImageUrl: "/images/coolbanana.png",
+    facebookEventId: "1358635586222681",
   },
   {
     id: "10",
