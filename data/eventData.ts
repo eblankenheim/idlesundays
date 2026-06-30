@@ -97,28 +97,25 @@ export const events: Event[] = [
     facebookEventId: "1358635586222681",
   },
   {
-    id: "10",
-    title: "Event #10",
-    start: "2026-07-05T16:30:00",
-    description: "Coming Soon...",
-    location: "",
-    url: "",
-    locationImageUrl: "/images/logo_640.png",
-    facebookEventId: "",
-  },
-  {
     id: "11",
-    title: "Event #11",
+    title: "Idle Sundays: IdleFest at Centennial Park",
     start: "2026-07-26T16:30:00",
-    description: "Coming Soon...",
-    location: "",
-    url: "",
-    locationImageUrl: "/images/logo_640.png",
-    facebookEventId: "",
+    description: `We're keeping this one simple — just a big get-together at the park.
+
+This is our first bigger one, but it's still the same laid-back Idle Sundays vibe. Cars lined up, music going, and a lot more time to actually hang out.
+
+Bring friends, family, or whoever — even if they're not into cars. Everyone's welcome.
+
+No cruising — just pull up, park, and hang out.
+Keep it respectful so we can keep doing these. 🙏`,
+    location: "620 Midge St, Johnson Creek, WI 53038",
+    url: "https://maps.app.goo.gl/RTGpBmnCz8fMHrSt9",
+    locationImageUrl: "/images/centennialParkWeb.png",
+    facebookEventId: "2783560048680132",
   },
   {
     id: "12",
-    title: "Event #12",
+    title: "Event #12 - Coming Soon!",
     start: "2026-08-16T16:30:00",
     description: "Coming Soon...",
     location: "",
@@ -128,7 +125,7 @@ export const events: Event[] = [
   },
   {
     id: "13",
-    title: "Event #13",
+    title: "Event #13 - Coming Soon!",
     start: "2026-09-06T17:00:00",
     description: "Coming Soon...",
     location: "",

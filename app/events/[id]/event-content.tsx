@@ -14,13 +14,15 @@ export function EventContent({ event }: { event: Event }) {
     <motion.div
       className="min-h-screen bg-black text-white py-6"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}>
+      animate={{ opacity: 1 }}
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-6">
           <Link
             href="/calendar"
-            className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2">
+            className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2"
+          >
             ← Back to Calendar
           </Link>
         </div>
@@ -29,7 +31,8 @@ export function EventContent({ event }: { event: Event }) {
           className="bg-gray-900 rounded border border-gray-700 overflow-hidden"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}>
+          transition={{ duration: 0.6 }}
+        >
           {/* Event Image */}
           {event.locationImageUrl && (
             <div className="relative h-44 sm:h-80 bg-black">
@@ -50,7 +53,8 @@ export function EventContent({ event }: { event: Event }) {
               className="mb-6"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}>
+              transition={{ delay: 0.1 }}
+            >
               <h1 className="text-4xl sm:text-5xl font-bold mb-3">
                 {event.title}
               </h1>
@@ -75,9 +79,10 @@ export function EventContent({ event }: { event: Event }) {
                 className="mb-3"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}>
+                transition={{ delay: 0.2 }}
+              >
                 <h2 className="text-2xl font-bold mb-1.5 text-cyan-400">
-                  About
+                  Description
                 </h2>
                 <p className="text-gray-300 leading-relaxed whitespace-pre-wrap">
                   {event.description}
@@ -91,7 +96,8 @@ export function EventContent({ event }: { event: Event }) {
                 className="mb-3"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}>
+                transition={{ delay: 0.3 }}
+              >
                 <h2 className="text-2xl font-bold mb-1.5 text-cyan-400">
                   Location
                 </h2>
@@ -105,13 +111,15 @@ export function EventContent({ event }: { event: Event }) {
                 className="flex flex-col sm:flex-row gap-4 mt-4"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}>
+                transition={{ delay: 0.4 }}
+              >
                 {event.facebookEventId && (
                   <a
                     href={`https://www.facebook.com/events/${event.facebookEventId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-6 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center">
+                    className="flex-1 px-6 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-all text-center"
+                  >
                     View on Facebook
                   </a>
                 )}
@@ -120,7 +128,8 @@ export function EventContent({ event }: { event: Event }) {
                     href={event.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1 px-6 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
+                    className="flex-1 flex items-center justify-center gap-1 px-6 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
+                  >
                     Directions <EastIcon sx={{ fontSize: "18px" }} />
                   </a>
                 )}
@@ -132,14 +141,16 @@ export function EventContent({ event }: { event: Event }) {
               className="mt-8 p-4 bg-gray-800 rounded border border-cyan-400"
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}>
+              transition={{ delay: 0.5 }}
+            >
               <p className="text-gray-300">
                 Want to stay updated? Join our{" "}
                 <a
                   href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 font-bold hover:text-cyan-300">
+                  className="text-cyan-400 font-bold hover:text-cyan-300"
+                >
                   Facebook community
                 </a>
               </p>
