@@ -1,6 +1,6 @@
 {
-  "name": "Idle Sundays",
-  "short_name": "Idle Sundays",
+  "name": "IdleSundays",
+  "short_name": "IdleSundays",
   "description": "Join us for scenic cruises and car meet-ups in Wisconsin",
   "start_url": "/",
   "display": "standalone",

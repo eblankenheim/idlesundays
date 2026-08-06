@@ -12,6 +12,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/calendar", label: "Calendar" },
     { href: "/facebook", label: "Facebook" },
+    { href: "/instagram", label: "Instagram" },
   ];
 
   const menuVariants = {

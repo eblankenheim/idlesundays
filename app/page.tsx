@@ -6,6 +6,11 @@ import { motion } from "framer-motion";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import AltRouteIcon from "@mui/icons-material/AltRoute";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
+// Official Instagram brand gradient: yellow -> orange -> pink -> purple -> blue
+const IG_GRADIENT =
+  "linear-gradient(45deg, #FCAF45 0%, #F56040 25%, #E1306C 50%, #833AB4 75%, #405DE6 100%)";
 
 export default function HomePage() {
   const containerVariants = {
@@ -105,6 +110,14 @@ export default function HomePage() {
                   className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
                   Join Community
                 </a>
+
+                <Link
+                  href="/instagram"
+                  className="flex items-center justify-center gap-2 px-8 py-3 text-white font-bold rounded transition-all hover:brightness-110 text-center"
+                  style={{ background: IG_GRADIENT }}>
+                  <InstagramIcon sx={{ fontSize: 22 }} />
+                  Follow Us
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -182,8 +195,8 @@ export default function HomePage() {
           <motion.p
             className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
             variants={itemVariants}>
-            Check out our upcoming events and the Idle Sundays Facebook
-            community
+            Check out our upcoming events, the Idle Sundays Facebook community,
+            and our Instagram
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -200,6 +213,13 @@ export default function HomePage() {
               className="px-10 py-4 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
               Join on Facebook
             </a>
+            <Link
+              href="/instagram"
+              className="flex items-center justify-center gap-2 px-10 py-4 text-white font-bold rounded transition-all hover:brightness-110 text-center"
+              style={{ background: IG_GRADIENT }}>
+              <InstagramIcon sx={{ fontSize: 24 }} />
+              Follow on Instagram
+            </Link>
           </motion.div>
         </div>
       </motion.div>

@@ -54,6 +54,27 @@ export default function FacebookPage() {
             </div>
           </motion.div>
 
+          {/* About Us */}
+          <motion.div className="mb-12" variants={itemVariants}>
+            <h3 className="text-3xl font-bold mb-6 text-cyan-400">
+              What It's About
+            </h3>
+            <div className="space-y-4 text-gray-300">
+              <p>
+                Idle Sundays is just a group of friends who love a good drive.
+                We cruise scenic backroads, enjoy great company, and maybe stop
+                for coffee or a bite. No drama, no exclusive vibes—just people
+                who appreciate cars and good times.
+              </p>
+
+              <img
+                src="/images/event2.jpg"
+                alt="Idle Sundays event"
+                className="w-full rounded-lg"
+              />
+            </div>
+          </motion.div>
+
           {/* Main CTA */}
           <motion.div
             className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border-2 border-cyan-400 p-8 mb-12"
@@ -107,27 +128,6 @@ export default function FacebookPage() {
                 <div className="text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* About Us */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-3xl font-bold mb-6 text-cyan-400">
-              What It's About
-            </h3>
-            <div className="space-y-4 text-gray-300">
-              <p>
-                Idle Sundays is just a group of friends who love a good drive.
-                We cruise scenic backroads, enjoy great company, and maybe stop
-                for coffee or a bite. No drama, no exclusive vibes—just people
-                who appreciate cars and good times.
-              </p>
-
-              <img
-                src="/images/event2.jpg"
-                alt="Idle Sundays event"
-                className="w-full rounded-lg"
-              />
-            </div>
           </motion.div>
 
           {/* CTA Buttons */}
