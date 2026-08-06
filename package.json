@@ -8,9 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync": "aws s3 sync ./out s3://idlesundays.com/",
-    "invalidate": "aws cloudfront create-invalidation --distribution-id E3I0XZQFYFEILP --paths /*",
-    "deploy": "npm run build && npm run sync && npm run invalidate",
     "test": "jest",
     "clean": "rm -rf .next out node_modules package-lock.json",
     "reinstall": "npm cache clean --force && npm install"
