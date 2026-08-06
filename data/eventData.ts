@@ -9,7 +9,7 @@ export const events: Event[] = [
       "Kick off the season with Idle Sunday's first official ride — a chill backroads cruise through Southeastern Wisconsin. Whether you're rolling on two wheels or four, expect scenic routes, fresh air, and solid company. Meet at the Collins & Cross Parking Lot in Oconomowoc, WI and be ready to roll at 4:30 PM sharp!",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
-    locationImageUrl: "/images/collins_lot.jpg",
+    locationImageUrl: "/images/collins_lot.PNG",
     facebookEventId: "1222536526128040",
   },
   {
@@ -71,7 +71,7 @@ export const events: Event[] = [
       "Grill out at our place! No driving around unfortunately, but we get to mingle and hangout!",
     location: "Amalia and Evan's House",
     url: "https://www.google.com/maps/dir//428+Champlain+Dr,+Johnson+Creek,+WI+53038,+USA/@43.0801413,-88.8668036,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805d61cc726d83f:0x1a716921104a2eb!2m2!1d-88.7844034!2d43.0801709?entry=ttu&g_ep=EgoyMDI1MDgxMi4wIKXMDSoASAFQAw%3D%3D",
-    locationImageUrl: "/images/house.jpg",
+    locationImageUrl: "/images/A&E_House_pic.jpg",
     facebookEventId: "739597328623689",
   },
   {
@@ -82,7 +82,7 @@ export const events: Event[] = [
       "Kick off the 2026 summer car season with us! Join us for a chill backroads cruise. We'll start at the Collins & Cross Parking Lot in Oconomowoc, WI at 4:30 PM. Anything goes - bikes, cars, whatever you roll on. You're welcome here. Let's get this season started!",
     location: "City of Oconomowoc Collins Street Lot, Oconomowoc, WI",
     url: "https://www.google.com/maps/dir//Oconomowoc,+WI+53066/@43.109898,-88.5800427,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8805ca6a6ed91a63:0x78fe373586afef51!2m2!1d-88.497642!2d43.1099276?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D",
-    locationImageUrl: "/images/collins_lot.png",
+    locationImageUrl: "/images/collins_lot.PNG",
     facebookEventId: "1552182543133065",
   },
   {

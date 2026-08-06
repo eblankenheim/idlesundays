@@ -40,7 +40,8 @@ export default function HomePage() {
         className="relative py-10 z-0"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}>
+        variants={containerVariants}
+      >
         {/* Side Cars Container - clipped */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Left Car - Peeking In */}
@@ -77,18 +78,21 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="flex flex-col lg:flex-row items-center justify-center gap-12"
-            variants={itemVariants}>
+            variants={itemVariants}
+          >
             {/* Text Content */}
             <div className="flex-1">
               <motion.h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
-                variants={itemVariants}>
+                variants={itemVariants}
+              >
                 Idle <span className="text-cyan-400">Sundays</span>
               </motion.h1>
 
               <motion.p
                 className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed"
-                variants={itemVariants}>
+                variants={itemVariants}
+              >
                 Join us for scenic backroads cruises through Wisconsin.
                 Experience the thrill of automotive passion with a community of
                 enthusiasts who share your love for cars and bikes alike.
@@ -96,10 +100,12 @@ export default function HomePage() {
 
               <motion.div
                 className="flex flex-col sm:flex-row gap-4"
-                variants={itemVariants}>
+                variants={itemVariants}
+              >
                 <Link
                   href="/calendar"
-                  className="px-8 py-3 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all text-center">
+                  className="px-8 py-3 bg-cyan-400 text-black font-bold rounded border border-cyan-300 hover:border-cyan-300 hover:bg-black hover:text-white transition-all text-center"
+                >
                   View Events
                 </Link>
 
@@ -107,14 +113,16 @@ export default function HomePage() {
                   href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
+                  className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
+                >
                   Join Community
                 </a>
 
                 <Link
                   href="/instagram"
-                  className="flex items-center justify-center gap-2 px-8 py-3 text-white font-bold rounded transition-all hover:brightness-110 text-center"
-                  style={{ background: IG_GRADIENT }}>
+                  className="flex items-center justify-center gap-2 px-8 py-3 text-white font-bold rounded transition-all hover:text-black text-center"
+                  style={{ background: IG_GRADIENT }}
+                >
                   <InstagramIcon sx={{ fontSize: 22 }} />
                   Follow Us
                 </Link>
@@ -130,17 +138,20 @@ export default function HomePage() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={containerVariants}>
+        variants={containerVariants}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             className="text-3xl sm:text-4xl font-bold text-center mb-8"
-            variants={itemVariants}>
+            variants={itemVariants}
+          >
             Why Join <span className="text-cyan-400">Idle Sundays?</span>
           </motion.h2>
 
           <motion.div
             className="grid md:grid-cols-3 gap-4"
-            variants={containerVariants}>
+            variants={containerVariants}
+          >
             {[
               {
                 icon: <AltRouteIcon sx={{ fontSize: 48, color: "#06B6D4" }} />,
@@ -163,7 +174,8 @@ export default function HomePage() {
               <motion.div
                 key={idx}
                 className="backdrop-blur-sm p-3 rounded border border-gray-700 hover:border-cyan-400 transition-colors relative z-30"
-                variants={itemVariants}>
+                variants={itemVariants}
+              >
                 <div className="text-5xl mb-2">{feature.icon}</div>
                 <h3 className="text-2xl font-bold mb-1.5">{feature.title}</h3>
                 <p className="text-lg text-gray-400">{feature.description}</p>
@@ -178,7 +190,8 @@ export default function HomePage() {
         className="py-6 relative"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}>
+        variants={containerVariants}
+      >
         {/* Background Car */}
         <img
           src="/images/neela_faded.png"
@@ -189,34 +202,40 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h2
             className="text-3xl sm:text-4xl font-bold mb-6"
-            variants={itemVariants}>
+            variants={itemVariants}
+          >
             Still not sure?
           </motion.h2>
           <motion.p
             className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}>
+            variants={itemVariants}
+          >
             Check out our upcoming events, the Idle Sundays Facebook community,
             and our Instagram
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
-            variants={itemVariants}>
+            variants={itemVariants}
+          >
             <Link
               href="/calendar"
-              className="px-10 py-4 bg-cyan-400 text-black font-bold rounded hover:bg-cyan-300 transition-all text-center">
+              className="px-10 py-4 bg-cyan-400 text-black font-bold rounded border border-cyan-300 hover:border-cyan-300 hover:bg-black hover:text-white transition-all text-center"
+            >
               Explore Events
             </Link>
             <a
               href="https://www.facebook.com/share/g/18Q3Uf6vyR/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-4 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center">
+              className="px-10 py-4 border-2 border-cyan-400 text-cyan-400 font-bold rounded hover:bg-cyan-400 hover:text-black transition-all text-center"
+            >
               Join on Facebook
             </a>
             <Link
               href="/instagram"
-              className="flex items-center justify-center gap-2 px-10 py-4 text-white font-bold rounded transition-all hover:brightness-110 text-center"
-              style={{ background: IG_GRADIENT }}>
+              className="flex items-center justify-center gap-2 px-10 py-4 text-white font-bold rounded transition-all hover:text-black text-center"
+              style={{ background: IG_GRADIENT }}
+            >
               <InstagramIcon sx={{ fontSize: 24 }} />
               Follow on Instagram
             </Link>
