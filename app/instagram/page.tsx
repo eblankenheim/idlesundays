@@ -61,14 +61,14 @@ export default function InstagramPage() {
         >
           {/* Header */}
           <motion.div
-            className="text-center mb-6 py-8 px-8 rounded-lg relative overflow-hidden"
+            className="text-center mb-6 py-2 sm:py-8 px-2 sm:px-8 rounded-lg relative overflow-hidden"
             style={{ background: IG_GRADIENT }}
             variants={itemVariants}
           >
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="relative z-10 h-18">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4">
                 Follow{" "}
                 <span
                   className="bg-clip-text text-transparent break-words"
@@ -77,7 +77,7 @@ export default function InstagramPage() {
                   {INSTAGRAM_HANDLE}
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl font-semibold text-gray-300">
+              <p className="text-md sm:text-xl px-3 text-gray-300">
                 Photos, clips, and route recaps from Idle Sundays cruises
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function InstagramPage() {
             {/* Text */}
             <div>
               <h3
-                className="text-3xl font-bold mb-6 bg-clip-text text-transparent inline-block"
+                className="text-3xl font-bold mb-2 sm:mb-6 bg-clip-text text-transparent inline-block"
                 style={{ backgroundImage: IG_GRADIENT }}
               >
                 What You'll See
@@ -157,7 +157,7 @@ export default function InstagramPage() {
             style={{ background: IG_GRADIENT }}
             variants={itemVariants}
           >
-            <div className="w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-[calc(0.5rem-2px)] p-8 ">
+            <div className="w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-[calc(0.5rem-2px)] p-2 py-4 sm:p-8">
               <div className="text-center">
                 <div
                   className="inline-flex items-center justify-center w-24 h-24 rounded-3xl mb-4"
@@ -194,7 +194,7 @@ export default function InstagramPage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-10 py-4 text-white font-bold rounded-lg text-lg transition-all hover:brightness-80 hover:text-black hover:scale-105"
+                  className="inline-flex items-center gap-3 px-4 py-4 text-white font-bold rounded-lg text-md sm:text-lg transition-all hover:brightness-80 hover:text-black hover:scale-105"
                   style={{ background: IG_GRADIENT }}
                 >
                   <InstagramIcon sx={{ fontSize: 28 }} />
