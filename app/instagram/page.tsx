@@ -136,13 +136,13 @@ export default function InstagramPage() {
                   minWidth: 0,
                 }}
               >
-                {/* Shown only until embed.js swaps in the real reel */}
+                {/* Shown only until embed.js swaps in the real reel. Kept a
+                    flat dark grey so it doesn't flash the gradient on load. */}
                 <a
                   href={INSTAGRAM_REEL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex aspect-[9/16] flex-col items-center justify-center gap-3 rounded-2xl p-6 text-center font-bold text-white"
-                  style={{ background: IG_GRADIENT }}
+                  className="flex aspect-[9/16] flex-col items-center justify-center gap-3 rounded-2xl border border-gray-700 bg-gray-900 p-6 text-center font-bold text-gray-400"
                 >
                   <InstagramIcon sx={{ fontSize: 48 }} />
                   Watch this reel on Instagram
